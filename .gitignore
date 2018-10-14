@@ -1,7 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*$py.class
+*.$py.class
 
 # C extensions
 *.so
@@ -39,7 +39,7 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 .coverage
-.coverage.*
+coverage.*
 .cache
 nosetests.xml
 coverage.xml
@@ -102,3 +102,17 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.cagefs/
+.cl.selector/
+.contactemail
+.cpanel/
+.cphorde/
+.lastlogin
+.softaculous/
+.spamassassin/
+.spamassassinenable
+.viminfo
