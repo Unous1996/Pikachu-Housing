@@ -1,0 +1,5 @@
+Django == 1.8.17
+djangorestframework==3.6.2
+django-allauth
+pep8
+django-cors-headers
