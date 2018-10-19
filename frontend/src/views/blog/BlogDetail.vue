@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { marked } from '../../lib/markedplus'
+import { marked } from '../../library/markedplus'
 export default {
   name: 'BlogDetail',
   components: {
