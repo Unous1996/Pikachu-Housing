@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'BlogMenu',
+  name: 'HouseMenu',
   props: ['content'],
   data () {
     return {

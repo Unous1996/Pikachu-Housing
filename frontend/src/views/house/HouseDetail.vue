@@ -72,9 +72,9 @@
 <script>
 import { marked } from '../../library/markedplus'
 export default {
-  name: 'BlogDetail',
+  name: 'HouseDetail',
   components: {
-    'vmenu': () => import('./BlogMenu.vue'),
+    'vmenu': () => import('./HouseMenu.vue'),
   },
   data () {
     return {
@@ -85,9 +85,9 @@ export default {
           to: '/'
         },
         {
-          text: 'Blog list',
+          text: 'House list',
           disabled: false,
-          to: '/blog/list'
+          to: '/house/list'
         },
         {
           text: 'Link 2',

@@ -57,7 +57,7 @@
           </v-flex>
 
           <v-flex md8>
-            <h3>Blog list</h3>
+            <h3>House list</h3>
             <v-divider></v-divider>
           </v-flex>
 
@@ -65,7 +65,7 @@
             <v-layout row wrap>
               <v-flex v-for="item in items" v-bind="{ [`xs${item.flex}`]: true }" :key="item.id">
                 <v-hover>
-                  <v-card class="mt-3" slot-scope="{ hover }" :class="`elevation-${hover ? 6 : 2}`" :to="'/blog/'+item.id">
+                  <v-card class="mt-3" slot-scope="{ hover }" :class="`elevation-${hover ? 6 : 2}`" :to="'/house/'+item.id">
                     <v-layout row>
                       <v-flex md3 v-show="$vuetify.breakpoint.mdAndUp">
                         <v-img :src="item.src" @click.stop="$router.push(item.id)"></v-img>
@@ -108,7 +108,7 @@
 
 <script>
 export default {
-  name: 'BlogList',
+  name: 'HouseList',
   data () {
     return {
       page: 1,

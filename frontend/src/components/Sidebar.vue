@@ -21,7 +21,7 @@
                   </v-flex>
                   <v-flex xs12 align-center justify-center text-xs-center headline>
                       <div>
-                        BLOGME
+                        Pikachu
                       </div>
                   </v-flex>
                 </v-layout>

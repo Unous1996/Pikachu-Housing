@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'BlogLayout',
+  name: 'HouseLayout',
   computed: {
     key () {
       return this.$route.fullPath
