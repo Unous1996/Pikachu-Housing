@@ -105,5 +105,5 @@ USE_TZ = True
 
 #STATIC_URL = 'frontend/dist/static/'
 STATIC_URL = '/static/'
-STATIC_ROOT = 'www.pikachu-housing.art/static'
+STATIC_ROOT = 'static'
 #STATICFILES_DIRS = [os.path.join(BASE_DIR + '/frontend/dist/static'), ]
