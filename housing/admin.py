@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from housing.models import House
+
+
+class HouseAdmin(admin.ModelAdmin):
+    list_display = ('name', 'location', 'price',)
+
+
+admin.site.register(House, HouseAdmin)

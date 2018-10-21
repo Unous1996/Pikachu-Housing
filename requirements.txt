@@ -3,3 +3,4 @@ djangorestframework==3.6.2
 django-allauth==0.34.0
 pep8
 django-cors-headers
+psycopg2
