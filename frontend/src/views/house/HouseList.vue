@@ -63,7 +63,7 @@
 
           <v-flex md8>
             <v-layout row wrap>
-              <v-flex v-for="item in items" v-bind="{ [`xs${item.flex}`]: true }" :key="item.id">
+              <v-flex v-for="item in houses" v-bind="{ [`xs${item.flex}`]: true }" :key="item.id">
                 <v-hover>
                   <v-card class="mt-3" slot-scope="{ hover }" :class="`elevation-${hover ? 6 : 2}`" :to="'/house/'+item.id">
                     <v-layout row>
@@ -107,8 +107,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'HouseList',
+  created() {
+    this.$store.dispatch('house/getList')
+  },
+  computed: mapState({
+    houses: state => state.house.list
+  }),
   data () {
     return {
       page: 1,
