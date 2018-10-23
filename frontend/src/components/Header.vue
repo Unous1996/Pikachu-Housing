@@ -7,7 +7,7 @@
       <img class="ml-3" src="../assets/logo.png" style="height: 30px;width: 30px" @click.stop="toRoute('index')">
     </v-avatar>
     <v-toolbar-title class="mr-5 align-center">
-      <div> BLOGME </div>
+      <div> Pikachu! </div>
     </v-toolbar-title>
     <v-layout row justify-center>
       <v-flex xs12 sm10 style="max-width: 750px">

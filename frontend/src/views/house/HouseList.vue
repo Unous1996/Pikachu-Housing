@@ -7,9 +7,9 @@
         <v-layout row wrap justify-space-between>
           <v-flex md8 xs12>
           <v-carousel style="height: 400px;">
-              <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src">
+              <v-carousel-item v-for="(item,i) in houses" :key="i" :src="item.imgs_url">
                 <v-layout>
-                  <h1 class="white--text ml-4 carousel-title">{{item.title}}</h1>
+                  <h1 class="white--text ml-4 carousel-title">{{item.name}}</h1>
                 </v-layout>
               </v-carousel-item>
             </v-carousel>
@@ -68,16 +68,16 @@
                   <v-card class="mt-3" slot-scope="{ hover }" :class="`elevation-${hover ? 6 : 2}`" :to="'/house/'+item.id">
                     <v-layout row>
                       <v-flex md3 v-show="$vuetify.breakpoint.mdAndUp">
-                        <v-img :src="item.src" @click.stop="$router.push(item.id)"></v-img>
+                        <v-img :src="item.imgs_url" @click.stop="$router.push(item.id)"></v-img>
                       </v-flex>
                       <v-flex md9 xs12>
                         <v-card-title class="pb-2">
-                          <div class="headline">{{item.title}}</div><br>
+                          <div class="headline">{{item.name}}</div><br>
                         </v-card-title>
                           <v-card-text class="pt-2">
-                            <span class="grey--text">Number 10</span><br>
-                            <span>Whitehaven Beach</span><br>
-                            <span>{{item.content}}</span>
+                            <span class="grey--text">Location: {{item.location}}</span><br>
+                            <span>Price: ${{item.price}}</span><br>
+                            <span class="grey--text">{{item.description}}</span>
                           </v-card-text>
                         <v-card-actions>
                           <v-btn flat color="orange">Share</v-btn>
@@ -115,35 +115,8 @@ export default {
     this.$store.dispatch('house/getList')
   },
   computed: mapState({
-    houses: state => state.house.list
+    houses: state => state.house.list.results
   }),
-  data () {
-    return {
-      page: 1,
-      items: [ {
-        id: 1,
-        flex: 12,
-        title: 'The dog example',
-        src: 'https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg',
-        content: 'I\'m a thing. But, like most politicians, he promised more than he could deliver. You won\'t have time for sleeping, soldier, not with all the bed making you\'ll be doing.'
-      },
-      {
-        id: 2,
-        flex: 12,
-        title: 'Listen some music!',
-        src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-        content: 'I\'m a thing. But, like most politicians, he promised more than he could deliver. You won\'t have time for sleeping, soldier, not with all the bed making you\'ll be doing.'
-      },
-      {
-        id: 3,
-        flex: 12,
-        title: 'Rock & Roll!',
-        src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-        content: 'I\'m a thing. But, like most politicians, he promised more than he could deliver. You won\'t have time for sleeping, soldier, not with all the bed making you\'ll be doing.'
-      }
-      ]
-    }
-  }
 }
 </script>
 

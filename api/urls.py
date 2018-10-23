@@ -1,9 +1,9 @@
 from rest_framework import routers
 from django.conf.urls import include, url, patterns
-from housing.api.views import BlogViewSet
+from housing.api.views import HouseViewSet
 
 router = routers.DefaultRouter()
-router.register(r'blog', BlogViewSet, base_name='blog')
+router.register(r'house', HouseViewSet, base_name='house')
 
 app_name = 'api'
 
