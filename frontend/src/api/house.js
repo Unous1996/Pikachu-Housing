@@ -29,7 +29,11 @@ export default {
     axios.get(url).then(response => {
       setTimeout(() => cb(response.data) , 100)
     })
-
-    // setTimeout(() => cb(_dummyHouse) , 100)
+  },
+  deleteHouse (id, cb) {
+    const url = `/api/house/${id}`
+    axios.delete(url).then(response => {
+      setTimeout(() => cb(response.data) , 100)
+    })
   }
 }

@@ -11,6 +11,11 @@ const actions = {
     house.getHouseList(houses => {
       commit('setHouseList', houses)
     })
+  },
+  deleteHouseObj ({ commit }, id) {
+    house.deleteHouse(id, houses => {
+      commit('setHouseList', houses)
+    })
   }
 }
 

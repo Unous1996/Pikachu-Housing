@@ -15,13 +15,13 @@ export const routerMap = [
   {
     path: '/house',
     name: 'house_list',
-    redirect: '/house/list',
+    // redirect: '/house/',
     component: (resolve) => {
       require(['@/views/house/HouseLayout'], resolve)
     },
     children: [
       {
-        path: 'list',
+        path: '/',
         component: (resolve) => {
           require(['@/views/house/HouseList'], resolve)
         }

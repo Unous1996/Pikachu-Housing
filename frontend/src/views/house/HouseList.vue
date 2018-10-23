@@ -65,23 +65,25 @@
             <v-layout row wrap>
               <v-flex v-for="item in houses" v-bind="{ [`xs${item.flex}`]: true }" :key="item.id">
                 <v-hover>
-                  <v-card class="mt-3" slot-scope="{ hover }" :class="`elevation-${hover ? 6 : 2}`" :to="'/house/'+item.id">
+                  <v-card class="mt-3" slot-scope="{ hover }" :class="`elevation-${hover ? 6 : 2}`">
                     <v-layout row>
-                      <v-flex md3 v-show="$vuetify.breakpoint.mdAndUp">
+                      <v-flex md3 v-show="$vuetify.breakpoint.mdAndUp" :to="'/house/'+item.id">
                         <v-img :src="item.imgs_url" @click.stop="$router.push(item.id)"></v-img>
                       </v-flex>
                       <v-flex md9 xs12>
                         <v-card-title class="pb-2">
-                          <div class="headline">{{item.name}}</div><br>
+                          <div class="headline">{{item.name}}</div>
+                          <br>
                         </v-card-title>
-                          <v-card-text class="pt-2">
+                          <v-card-text class="pt-2" >
                             <span class="grey--text">Location: {{item.location}}</span><br>
                             <span>Price: ${{item.price}}</span><br>
                             <span class="grey--text">{{item.description}}</span>
                           </v-card-text>
                         <v-card-actions>
-                          <v-btn flat color="orange">Share</v-btn>
-                          <v-btn flat color="orange">Explore</v-btn>
+                          <v-btn icon flat color="red"><v-icon>favorite</v-icon></v-btn>
+                          <v-btn icon flat color="orange"><v-icon>edit</v-icon></v-btn>
+                          <v-btn icon flat color="red" v-on:click="deleteHouse(item.id)"><v-icon>close</v-icon></v-btn>
                         </v-card-actions>
                       </v-flex>
                     </v-layout>
@@ -117,6 +119,12 @@ export default {
   computed: mapState({
     houses: state => state.house.list.results
   }),
+  methods: {
+    deleteHouse: function (id) { // 不能用箭头函数...
+      console.log(this.$store)
+      this.$store.dispatch('house/deleteHouseObj',id)
+    }
+  }
 }
 </script>
 

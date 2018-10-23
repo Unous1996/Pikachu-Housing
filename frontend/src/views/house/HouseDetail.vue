@@ -87,7 +87,7 @@ export default {
         {
           text: 'House list',
           disabled: false,
-          to: '/house/list'
+          to: '/house'
         },
         {
           text: 'Link 2',
