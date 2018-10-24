@@ -22,17 +22,18 @@ const _dummyHouse = [ {
       ]
 
 import axios from 'axios';
+import provider from '../utils/provider'
 
 export default {
   getHouseList (cb) {
     const url = "/api/house/"
-    axios.get(url).then(response => {
+    provider.get(url).then(response => {
       setTimeout(() => cb(response.data) , 100)
     })
   },
   deleteHouse (id, cb) {
     const url = `/api/house/${id}`
-    axios.delete(url).then(response => {
+    provider.delete(url).then(response => {
       setTimeout(() => cb(response.data) , 100)
     })
   }

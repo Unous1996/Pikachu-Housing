@@ -121,7 +121,6 @@ export default {
   }),
   methods: {
     deleteHouse: function (id) { // 不能用箭头函数...
-      console.log(this.$store)
       this.$store.dispatch('house/deleteHouseObj',id)
     }
   }
