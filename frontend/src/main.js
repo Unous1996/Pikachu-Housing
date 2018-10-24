@@ -6,6 +6,8 @@ import router from './router'
 import Vuetify from 'vuetify'
 import store from './store'
 import mavonEditor from 'mavon-editor'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import 'mavon-editor/dist/css/index.css'
 
@@ -14,6 +16,7 @@ Vue.use(Vuetify, {
   iconfont: 'md' // 'md' || 'mdi' || 'fa' || 'fa4'
 })
 Vue.use(mavonEditor)
+Vue.use(ElementUI)
 
 /* eslint-disable no-new */
 new Vue({

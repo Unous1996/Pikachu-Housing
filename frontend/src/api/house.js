@@ -33,8 +33,6 @@ export default {
   },
   deleteHouse (id, cb) {
     const url = `/api/house/${id}`
-    provider.delete(url).then(response => {
-      setTimeout(() => cb(response.data) , 100)
-    })
+    provider.delete(url).then(response => this.getHouseList(cb))
   }
 }

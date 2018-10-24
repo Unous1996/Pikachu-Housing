@@ -6,13 +6,14 @@
 
         <v-layout row wrap justify-space-between>
           <v-flex md8 xs12>
-          <v-carousel style="height: 400px;">
-              <v-carousel-item v-for="(item,i) in houses" :key="i" :src="item.imgs_url">
-                <v-layout>
+          <el-carousel type="card">
+              <el-carousel-item v-for="(item,i) in houses" :key="i" :src="item.imgs_url">
+                <v-layout justify-center>
+                  <img :src="item.imgs_url"/>
                   <h1 class="white--text ml-4 carousel-title">{{item.name}}</h1>
                 </v-layout>
-              </v-carousel-item>
-            </v-carousel>
+              </el-carousel-item>
+            </el-carousel>
           </v-flex>
 
           <v-flex md3 v-show="$vuetify.breakpoint.mdAndUp">
@@ -121,7 +122,13 @@ export default {
   }),
   methods: {
     deleteHouse: function (id) { // 不能用箭头函数...
-      this.$store.dispatch('house/deleteHouseObj',id)
+      this.$store.dispatch('house/deleteHouseObj',id).then(() => {
+        this.$notify({
+          title: "Delete successfully",
+          type: "success",
+          message: "Your chosen house has been deleted."
+        })
+      })
     }
   }
 }
