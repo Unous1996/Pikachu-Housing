@@ -3,17 +3,17 @@
     <v-flex md8>
       <v-container>
         <v-flex>
-          <v-breadcrumbs>
-            <v-icon slot="divider">chevron_right</v-icon>
 
-            <v-breadcrumbs-item
-              v-for="crumb in crumbs"
-              :disabled="crumb.disabled"
-              :key="crumb.text"
-              :to="crumb.to"
-            >
-              {{ crumb.text }}
-            </v-breadcrumbs-item>
+          <v-breadcrumbs>
+            <el-breadcrumb separator-class="el-icon-arrow-right">
+              <el-breadcrumb-item
+                v-for="crumb in crumbs"
+                :disabled="crumb.disabled"
+                :key="crumb.text"
+                :to="crumb.to"
+              > {{ crumb.text }}
+              </el-breadcrumb-item>
+            </el-breadcrumb>
           </v-breadcrumbs>
         </v-flex>
 
@@ -34,14 +34,26 @@
         </v-layout>
 
         <section class="content">
-          <v-layout>
-            <v-flex>
-              <h1 class="detailTitle">{{detail.title}}</h1>
+          <v-layout row justify-space-between>
+            <v-flex md3>
+              <h1 class="detailTitle">{{house.name}}</h1>
+            </v-flex>
+            <v-flex md3 class="text-xs-right">
+              <HouseEditModal :detail="house"></HouseEditModal>
             </v-flex>
           </v-layout>
           <v-divider></v-divider>
+          <v-flex class="mt-2">
+            <div style="margin-bottom: 10px">
+              <div>
+                <el-tag>Price: {{house.price}}</el-tag> <el-tag type="info"><span class="subtitle">Location: {{house.location}}</span></el-tag>
+              </div>
+            </div>
+            <v-divider> </v-divider>
+            <img :src="house.imgs_url" style="margin-top: 10px">
+          </v-flex>
           <v-flex class="mt-4">
-            <div v-html="markdownContent(detail.content)" id="mdeditor"></div>
+            <div v-html="markdownContent(house.description)" id="mdeditor"></div>
           </v-flex>
         </section>
 
@@ -62,22 +74,27 @@
       </v-container>
     </v-flex>
 
-    <v-flex md3 v-if="$vuetify.breakpoint.mdAndUp" >
-      <vmenu :content="this.tocObj"></vmenu>
-    </v-flex>
-
   </v-layout>
 </template>
 
 <script>
 import { marked } from '../../library/markedplus'
+import { mapState } from 'vuex'
 export default {
   name: 'HouseDetail',
   components: {
     'vmenu': () => import('./HouseMenu.vue'),
+    "HouseEditModal": () => import('./HouseEditModal.vue'),
   },
-  data () {
+  created() {
+    this.$store.dispatch('house/getHouseDetailObj',this.$route.params.id)
+  },
+  computed: mapState({
+    house: state => state.house.detail
+  }),
+  data: () => {
     return {
+      id: null,
       crumbs: [
         {
           text: 'Home',
@@ -99,65 +116,7 @@ export default {
         username: 'LeBron James',
         publishTime: '1900/01/01',
         title: 'If you have a dream, do it right now.',
-        content: '\n[TOC]\n' + '# Head1\n' +
-        '\n' +
-        '服了\n'  +
-        '## Head2\n' +
-        '\n' +
-        '### Head3\n' +
-        '\n' +
-        '-----\n' +
-        '\n' +
-        '*斜体字*\n\n' +
-        '### Head3\n' +
-        '\n' +
-        '**加粗字体**\n' +
-        '\n' +
-        '***加粗倾斜字体***\n' +
-        '\n' +
-        '~~ 删除线字体~~\n' +
-        '\n' +
-        '* 这个不知道什么文本形式*\\\n' +
-        '\n' +
-        '<small>这段是小字</small>\n' +
-        '\n' +
-        '传说中的单行长文字\n' +
-        '\n' +
-        '\n' +
-        '> 引用文字\n' +
-        '\n' +
-        '\n' +
-        '-----\n' +
-        '\n' +
-        '`高亮文字`\n' +
-        '\n' +
-        '***\n' +
-        '\n' +
-        '上面有条分割线\n' +
-        '\n' +
-        '\n' +
-        '这段是脚注[^footer1]\n' +
-        '\n' +
-        '\n' +
-        '\n' +
-        '[链接文字例如百度](www.baidu.com)\n' +
-        '\n' +
-        '无序要点\n' +
-        '\n' +
-        '- 这是第一点\n' +
-        '\n' +
-        '- 这是第二点\n' +
-        '\n' +
-        '-  这是第三点\n' +
-        '\n' +
-        '\n' +
-        '有序要点 \n' +
-        '\n' +
-        '1. 这是第一点\n' +
-        '\n' +
-        '2. 这是第二点\n' +
-        '\n' +
-        '3. 这是第三点\n'
+        content: "temp"
 
       },
     }

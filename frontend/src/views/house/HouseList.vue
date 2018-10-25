@@ -20,13 +20,13 @@
             <div class="mr-3" style="position:fixed;">
             <v-card color="blue-grey darken-2" class="white--text mt-3">
                   <v-card-title primary-title>
-                    <div class="headline">Unlimited music now</div>
+                    <div class="headline">Your House suggestion</div>
                   </v-card-title>
                   <v-card-text>
-                    <div>Listen to your favorite artists and albums whenever and wherever, online and offline.</div>
+                    <div>Based on your information, our algorithm will suggest best houses to you. Have a try!</div>
                   </v-card-text>
                   <v-card-actions>
-                    <v-btn flat dark>Listen now</v-btn>
+                    <v-btn flat dark>Try now</v-btn>
                   </v-card-actions>
               </v-card>
 
@@ -36,8 +36,8 @@
                     <v-card-title primary-title>
                       <div>
                         <div class="headline">Halycon Days</div>
-                        <div>Ellie Goulding</div>
-                        <div>(2013)</div>
+                        <div>Hot house</div>
+                        <div>Near ECEB | 3 houses left</div>
                       </div>
                     </v-card-title>
                   </v-flex>
@@ -51,25 +51,32 @@
                 </v-layout>
                 <v-divider light></v-divider>
                 <v-card-actions class="pa-3">
-                  Rate this album
+                  View this House
                 </v-card-actions>
             </v-card>
             </div>
           </v-flex>
 
           <v-flex md8>
-            <h3>House list</h3>
+            <v-layout row justify-space-between>
+              <v-flex md3>
+                <h1>House list</h1>
+              </v-flex>
+              <v-flex md3 class="text-xs-right">
+                <HouseCreateModal></HouseCreateModal>
+              </v-flex>
+              </v-layout>
             <v-divider></v-divider>
           </v-flex>
 
           <v-flex md8>
             <v-layout row wrap>
-              <v-flex v-for="item in houses" v-bind="{ [`xs${item.flex}`]: true }" :key="item.id">
+              <v-flex v-for="item in houses" v-bind="{ [`xs${item.flex}`]: true }" :key="item.id" xs12 md12>
                 <v-hover>
                   <v-card class="mt-3" slot-scope="{ hover }" :class="`elevation-${hover ? 6 : 2}`">
                     <v-layout row>
-                      <v-flex md3 v-show="$vuetify.breakpoint.mdAndUp" :to="'/house/'+item.id">
-                        <v-img :src="item.imgs_url" @click.stop="$router.push(item.id)"></v-img>
+                      <v-flex md3 v-show="$vuetify.breakpoint.mdAndUp" >
+                        <v-card :to="'/house/'+item.id"><v-img :src="item.imgs_url" @click.stop="$router.push(item.id)"></v-img></v-card>
                       </v-flex>
                       <v-flex md9 xs12>
                         <v-card-title class="pb-2">
@@ -79,7 +86,7 @@
                           <v-card-text class="pt-2" >
                             <span class="grey--text">Location: {{item.location}}</span><br>
                             <span>Price: ${{item.price}}</span><br>
-                            <span class="grey--text">{{item.description}}</span>
+                            <span class="grey--text">{{item.description.slice(0,200)}}...</span>
                           </v-card-text>
                         <v-card-actions>
                           <v-btn icon flat color="red"><v-icon>favorite</v-icon></v-btn>
@@ -98,7 +105,6 @@
         <v-flex md12 class="mt-3">
           <div class="text-xs-center">
             <v-pagination
-              v-model="page"
               :length="6"
             ></v-pagination>
           </div>
@@ -114,6 +120,9 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'HouseList',
+  components: {
+    "HouseCreateModal": () => import('./HouseCreateModal.vue'),
+  },
   created() {
     this.$store.dispatch('house/getList')
   },
@@ -121,7 +130,7 @@ export default {
     houses: state => state.house.list.results
   }),
   methods: {
-    deleteHouse: function (id) { // 不能用箭头函数...
+    deleteHouse: function (id) { // No arrow function here...
       this.$store.dispatch('house/deleteHouseObj',id).then(() => {
         this.$notify({
           title: "Delete successfully",

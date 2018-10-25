@@ -7,6 +7,7 @@ import Vuetify from 'vuetify'
 import store from './store'
 import mavonEditor from 'mavon-editor'
 import ElementUI from 'element-ui';
+import VeeValidate from 'vee-validate'
 import 'element-ui/lib/theme-chalk/index.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import 'mavon-editor/dist/css/index.css'
@@ -17,6 +18,7 @@ Vue.use(Vuetify, {
 })
 Vue.use(mavonEditor)
 Vue.use(ElementUI)
+Vue.use(VeeValidate)
 
 /* eslint-disable no-new */
 new Vue({

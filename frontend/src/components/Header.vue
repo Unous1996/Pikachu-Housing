@@ -20,12 +20,21 @@
         ></v-text-field>
       </v-flex>
     </v-layout>
-    <v-btn dark icon v-if="isList" @click.stop="listView()">
-      <v-icon>apps</v-icon>
-    </v-btn>
-    <v-btn dark icon v-else @click.stop="listView()">
-      <v-icon>view_list</v-icon>
-    </v-btn>
+      <v-menu transition="slide-y-transition" bottom>
+        <v-btn dark icon slot="activator">
+          <v-icon>more_vert</v-icon>
+        </v-btn>
+        <v-list>
+          <v-list-tile
+            v-for="(item, i) in items"
+            :key="i"
+            @click=""
+          >
+            <v-list-tile-title><v-icon>{{ item.icon }}</v-icon> {{ item.title }}</v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+
 </v-toolbar>
 </template>
 <script>
@@ -34,7 +43,12 @@ export default {
   props: ['toggle'],
   data () {
     return {
-      isList: true
+      isList: true,
+      items: [{
+        title: "Create new house",
+        to: "/house/create",
+        icon: "create",
+      }]
     }
   },
   methods: {

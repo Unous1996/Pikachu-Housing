@@ -27,6 +27,13 @@ export const routerMap = [
         }
       },
       {
+        path: 'create',
+        name: 'house_detail',
+        component: (resolve) => {
+          require(['@/views/house/HouseDetail'], resolve)
+        }
+      },
+      {
         path: ':id(\\d+)',
         name: 'house_detail',
         component: (resolve) => {
