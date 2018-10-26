@@ -94,6 +94,7 @@
                             <span class="grey--text">{{item.description.slice(0,200)}}...</span>
                           </v-card-text>
                         <v-card-actions>
+                          <v-btn icon flat color="green" :to="'/house/'+item.id"><v-icon>details</v-icon></v-btn>
                           <v-btn icon flat color="orange"><v-icon>share</v-icon></v-btn>
                           <v-btn icon flat color="red" v-on:click="deleteHouse(item.id)"><v-icon>close</v-icon></v-btn>
                         </v-card-actions>
