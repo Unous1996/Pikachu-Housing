@@ -1,19 +1,18 @@
 <template lang="html">
   <v-layout fill-height column class="text-xs-center">
     <section>
-      <v-parallax src="https://images8.alphacoders.com/779/779982.jpg" height=800>
+      <v-parallax src="https://www.pixelstalk.net/wp-content/uploads/2016/03/Cute-Pikachu-Wallpapers-HD-free-download.png" height=800>
         <v-layout
           align-center
           justify-center
-          class="white--text"
+          class="orange--text"
         >
           <v-flex>
-            <img src="../../assets/logo.png" alt="Vuetify.js" height="200">
-            <h1 class="white--text mb-2 display-3 text-xs-center">Pikachu-Housing</h1>
+            <h1 class="orange--text mb-2 display-3 text-xs-center">Pikachu-Housing</h1>
             <div class="subheading mb-3 text-xs-center">Find your house now</div>
             <movedown>
-              <v-btn class="transparent" flat dark large @click.stop="scrollToNext('features')">
-                <v-icon>
+              <v-btn class="transparent" flat large @click.stop="scrollToNext('features')">
+                <v-icon blue>
                   keyboard_arrow_down
                 </v-icon>
               </v-btn>
@@ -33,7 +32,7 @@
         </movedown>
     </section>
     <section id="create">
-      <v-parallax src="https://images.wallpaperscraft.com/image/book_glasses_coffee_flowers_118088_1350x2400.jpg" height=800>
+      <v-parallax src="https://www.50-best.com/images/pokemon_wallpapers/pikachu_face_wallpaper.jpg" height=800>
         <v-layout
           align-center
           justify-center
@@ -42,7 +41,7 @@
           <v-flex>
             <h1 class="white--text mb-2 display-3 text-s-center">Pikachu-Housing</h1>
             <div class="subheading mb-3 text-xs-center">Let's start now!</div>
-            <v-btn dark large class="info" to="/house" >Get Started</v-btn>
+            <v-btn dark large color="yellow darken-3"  to="/house" >Get Started</v-btn>
           </v-flex>
         </v-layout>
       </v-parallax>

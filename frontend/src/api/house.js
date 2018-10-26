@@ -1,8 +1,11 @@
 import provider from '../utils/provider'
 
 export default {
-  getHouseList (cb) {
-    const url = "/api/house/"
+  getHouseList (cb, query={}) {
+    let url = "/api/house/"
+    if (Object.keys(query).length !== 0) {
+      url = `/api/house/?name=${query.name}`
+    }
     provider.get(url).then(response => {
       setTimeout(() => cb(response.data) , 100)
     })

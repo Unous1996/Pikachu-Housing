@@ -8,10 +8,10 @@ const state = {
 const getters = {}
 
 const actions = {
-  getList ({ commit }) {
+  getList ({ commit }, query) {
     house.getHouseList(houses => {
       commit('setHouseList', houses)
-    })
+    }, query)
   },
   deleteHouseObj ({ commit }, id) {
     house.deleteHouse(id, houses => {

@@ -12,7 +12,7 @@
         <v-flex xs6 md4  v-for="(item, idx) in article.items" :key="idx" my-3>
           <v-card flat class="elevation-0 transparent">
             <v-card-text class="text-xs-center">
-              <v-icon x-large class="blue--text text--lighten-2">{{item.icon}}</v-icon>
+              <v-icon x-large class="blue--text text--lighten-2" color="yellow darken-3">{{item.icon}}</v-icon>
             </v-card-text>
             <v-card-text>
               {{item.template}}
@@ -38,15 +38,15 @@ export default {
       title: 'Features',
       items: [
         {
-          template: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.',
+          template: 'Pikachu housing is a Single Page Application for searching house in Champaign-Urbana area. Most freshmen in UIUC are hard to find their rooms, so we provide this free service.',
           icon: 'flash_on'
         },
         {
-          template: 'Wmagna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          template: 'We use authentic data from various source. Our parser ensures the prices are precise and our suggestion algorithm will provide best houses for you based on your behaviors and requests.',
           icon: 'check_circle'
         },
         {
-          template: 'What the fuck man, conin reprehenderit in nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          template: 'You are allowed to create comments and make friends with those users who might be a good future roommate for you.',
           icon: 'edit'
         }
       ]

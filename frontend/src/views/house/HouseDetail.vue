@@ -17,22 +17,6 @@
           </v-breadcrumbs>
         </v-flex>
 
-        <v-layout>
-          <v-flex row>
-            <v-list-tile>
-              <v-list-tile-avatar>
-                <img :src="detail.avatar">
-              </v-list-tile-avatar>
-              <div>
-                <div>
-                  {{detail.username}}<br>
-                  <span class="subtitle">{{detail.publishTime}}</span>
-                </div>
-              </div>
-            </v-list-tile>
-          </v-flex>
-        </v-layout>
-
         <section class="content">
           <v-layout row justify-space-between>
             <v-flex md3>
@@ -107,18 +91,10 @@ export default {
           to: '/house'
         },
         {
-          text: 'Link 2',
+          text: 'Detail',
           disabled: true
         }
       ],
-      detail: {
-        avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-        username: 'LeBron James',
-        publishTime: '1900/01/01',
-        title: 'If you have a dream, do it right now.',
-        content: "temp"
-
-      },
     }
   },
   methods: {
