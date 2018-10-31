@@ -4,24 +4,24 @@
     app
     clipped
     v-model="visible"
-    class="info darken-2"
+    class="yellow darken-3"
     >
     <v-container grid-list-sm>
       <v-layout row justify-center align-center>
         <v-flex xs12>
-          <v-card flat class="info darken-2">
+          <v-card flat class="yellow darken-3">
             <v-card-title flat>
               <v-container grid-list-sm>
                 <v-layout row wrap>
                   <v-flex xs12
                     align-center justify-center text-xs-center>
                     <v-avatar tile="tile" style="cursor: pointer">
-                      <img src="../assets/logo.png" alt="avatar" @click.stop="toRoute('index')">
+                      <img src="../assets/pikachu.svg" alt="avatar" @click.stop="toRoute('home')">
                     </v-avatar>
                   </v-flex>
                   <v-flex xs12 align-center justify-center text-xs-center headline>
                       <div>
-                        BLOGME
+                        Pikachu!
                       </div>
                   </v-flex>
                 </v-layout>
@@ -66,16 +66,15 @@ export default {
   data () {
     return {
       items: [
-        { icon: 'dashboard', text: 'Home', link: 'index' },
-        { icon: 'book', text: 'Topics', link: 'blog_list' },
+        { icon: 'dashboard', text: 'Home', link: 'home' },
+        { icon: 'home', text: 'House', link: 'house' },
         { icon: 'person', text: 'About', link: 'about' }
       ]
     }
   },
   methods: {
     toRoute (rname, rparams = {}, query = {}) {
-      this.dialog = true
-      this.$router.push({name: rname, params: rparams, query: query})
+      this.$router.push({path: rname, params: rparams, query: query})
     }
   },
   computed: {

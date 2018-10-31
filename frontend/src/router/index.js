@@ -13,24 +13,31 @@ export const routerMap = [
     }
   },
   {
-    path: '/blog',
-    name: 'blog_list',
-    redirect: '/blog/list',
+    path: '/house',
+    name: 'house_list',
+    // redirect: '/house/',
     component: (resolve) => {
-      require(['@/views/blog/BlogLayout'], resolve)
+      require(['@/views/house/HouseLayout'], resolve)
     },
     children: [
       {
-        path: 'list',
+        path: '/',
         component: (resolve) => {
-          require(['@/views/blog/BlogList'], resolve)
+          require(['@/views/house/HouseList'], resolve)
+        }
+      },
+      {
+        path: 'create',
+        name: 'house_detail',
+        component: (resolve) => {
+          require(['@/views/house/HouseDetail'], resolve)
         }
       },
       {
         path: ':id(\\d+)',
-        name: 'blog_detail',
+        name: 'house_detail',
         component: (resolve) => {
-          require(['@/views/blog/BlogDetail'], resolve)
+          require(['@/views/house/HouseDetail'], resolve)
         }
       }
     ]

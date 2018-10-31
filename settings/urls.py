@@ -12,14 +12,17 @@ Class-based views
 Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include, url
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from rest_framework import routers
 import views
 
 router = routers.DefaultRouter()
 
-urlpatterns = [
+urlpatterns = patterns(
+    '',
     url(r'^$', views.vue),
+    url(r'^api/', include('api.urls')),
     url(r'^admin/', include(admin.site.urls)),
-]
+    url(r'^house/', 'settings.views.vue'),
+)

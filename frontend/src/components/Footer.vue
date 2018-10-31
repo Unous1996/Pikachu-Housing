@@ -1,5 +1,5 @@
 <template>
-  <v-footer dark class="info darken-2 text-center">
+  <v-footer dark class="yellow darken-3 text-center">
     <v-layout row wrap align-center>
       <v-flex xs12>
         <div class="white--text ml-3 text-center">

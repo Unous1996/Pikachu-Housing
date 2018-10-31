@@ -1,31 +1,46 @@
 <template>
-  <v-toolbar app dense fixed dark clipped-left class="info darken-2">
-    <v-btn dark flat @click.stop="onToggle" class="info">
+  <v-toolbar app dense fixed dark clipped-left class="yellow darken-3">
+    <v-btn dark flat icon @click.stop="onToggle" class="yellow darken-3">
       <v-icon>menu</v-icon>
     </v-btn>
+
     <v-avatar tile="tile" style="cursor: pointer">
-      <img class="ml-3" src="../assets/logo.png" style="height: 30px;width: 30px" @click.stop="toRoute('index')">
+      <img class="ml-3" src="../assets/pikachu.svg" style="height: 30px;width: 30px" @click.stop="toRoute('/')">
     </v-avatar>
+
     <v-toolbar-title class="mr-5 align-center">
-      <div> BLOGME </div>
+      <div> Pikachu! </div>
     </v-toolbar-title>
+
     <v-layout row justify-center>
       <v-flex xs12 sm10 style="max-width: 750px">
         <v-text-field
-          placeholder="Search..."
+          placeholder="Search house by name here..."
           single-line
-          append-icon="search"
-          :append-icon-cb="() => {}"
           dark
+          color="orange darken-3"
+          v-model="searchInput"
+          append-icon="search"
+          @click:append="() => toRoute('house',{}, {name: searchInput})"
         ></v-text-field>
       </v-flex>
     </v-layout>
-    <v-btn dark icon v-if="isList" @click.stop="listView()">
-      <v-icon>apps</v-icon>
-    </v-btn>
-    <v-btn dark icon v-else @click.stop="listView()">
-      <v-icon>view_list</v-icon>
-    </v-btn>
+
+      <v-menu transition="slide-y-transition" bottom>
+        <v-btn dark icon slot="activator">
+          <v-icon>more_vert</v-icon>
+        </v-btn>
+        <v-list>
+          <v-list-tile
+            v-for="(item, i) in items"
+            :key="i"
+            @click=""
+          >
+            <v-list-tile-title><v-icon >{{ item.icon }}</v-icon> {{ item.title }}</v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+
 </v-toolbar>
 </template>
 <script>
@@ -34,7 +49,13 @@ export default {
   props: ['toggle'],
   data () {
     return {
-      isList: true
+      isList: true,
+      items: [{
+        title: "Create new house",
+        to: "/house/create",
+        icon: "create",
+      }],
+      searchInput: '',
     }
   },
   methods: {
@@ -42,8 +63,7 @@ export default {
       this.toggle()
     },
     toRoute (rname, rparams = {}, query = {}) {
-      this.dialog = true
-      this.$router.push({name: rname, params: rparams, query: query})
+      this.$router.push({path: rname, params: rparams, query: query})
     }
   }
 }
