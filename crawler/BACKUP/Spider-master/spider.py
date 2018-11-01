@@ -1,8 +1,11 @@
 from urllib.request import urlopen
+import urllib.request
 from link_finder import LinkFinder
 from domain import *
 from general import *
 import ssl
+import urllib
+from findImageMHM import *
 from findImageUG import *
 class Spider:
 
@@ -41,8 +44,11 @@ class Spider:
             Spider.queue.remove(page_url)
             Spider.crawled.add(page_url)
             Spider.update_files()
-            if "property-details" in page_url:
-                findImageUG(page_url,str(len(Spider.crawled)))
+            #UG property
+            #if "property-details" in page_url:
+            #    findImageUG(page_url,str(len(Spider.crawled)))
+            if "property" in page_url:
+                findImageMHM(page_url,str(len(Spider.crawled)))
 
     # Converts raw response data into readable information and checks for proper html formatting
     @staticmethod
@@ -50,10 +56,13 @@ class Spider:
         html_string = ''
         try:
             ssl._create_default_https_context = ssl._create_unverified_context
-            response = urlopen(page_url)
+            headers = {'User-Agent': 'Mozilla/5.0'}
+            req = urllib.request.Request(url=page_url,headers=headers)
+            response = urlopen(req)
             if 'text/html' in response.getheader('Content-Type'):
                 html_bytes = response.read()
                 html_string = html_bytes.decode("utf-8")
+                #print(html_string)
             finder = LinkFinder(Spider.base_url, page_url)
             finder.feed(html_string)
         except Exception as e:
