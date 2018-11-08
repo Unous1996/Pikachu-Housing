@@ -8,7 +8,7 @@ from rest_framework import generics
 
 # Create your models here.
 
-class Distance(generics.ListCreateAPIView):
+class Distance(models.Model):
     house_id = models.ForeignKey(House, blank=False, null=False)
     department_id = models.ForeignKey(Department, blank=False, null=False)
     distance = models.FloatField(default=0, blank=False)

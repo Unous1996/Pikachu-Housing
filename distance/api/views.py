@@ -1,7 +1,8 @@
 from distance.models import Distance
 from distance.api.paginations import DistancePagination
 from serializers import DistanceSerializer
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
+
 
 class DistanceViewSet(viewsets.ModelViewSet):
     pagination_class = DistancePagination
@@ -10,3 +11,4 @@ class DistanceViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = Distance.objects.all()
         return queryset
+
