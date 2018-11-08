@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'housing',
     'department',
     'provider',
+    'distance'
 )
 
 MIDDLEWARE_CLASSES = (

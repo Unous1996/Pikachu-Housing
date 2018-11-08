@@ -2,7 +2,6 @@ from django.db import models
 from provider.models import Provider
 # Create your models here.
 
-
 class House(models.Model):
     name = models.CharField(max_length=32, )
     location = models.CharField(max_length=128, blank=True)
