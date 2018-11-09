@@ -17,7 +17,7 @@ CS411 Project Pikachu-housing 开发流程和注意事项
 * 打开终端，进入pikachu.pem所在的文件夹，通过ssh连接服务器: 
 ` ssh -i "pikachu.pem" ec2-user@ec2-52-14-154-253.us-east-2.compute.amazonaws.com` 
 
-###（线上启动后端）
+### (线上启动后端）
 * 检查gunicron（连接nginx服务器和django后端的工具）是否打开：`lsof -i :8000`；
 * 如果存在进程，`sudo kill xxx(对应的pid)`；
 * 进入Pikachu-Housing文件夹 cd /home/Pikachu-Housing，并开启gunicorn连接wsgi： `gunicorn settings.wsgi:application --bind 0.0.0.0:8000` 
@@ -56,8 +56,9 @@ CS411 Project Pikachu-housing 开发流程和注意事项
 * 在进行线上数据库操作时，需要通知其他人，防止冲突；
 * django superuser username: pikachu, email: tinghui_liao@outlook.com password: pikachu.
 
-##stage4 （10.31）前任务：
+## stage4 （10.31）前任务：
 * 数据库：将服务器的数据库按照ER图建好（使用sql的ddl指令，可以保存一些测试数据），并将最终建好的数据库导出到本地备用；在建立好house表后，通知所有人；（徐艺嘉）
 * 爬虫：实现爬虫的基本功能，能从一个指定网站，获取10条左右的数据，并且通过python程序导入到线上数据库；（杨过）
 * 后端：通过django的框架，实现对house表的增删改查（CURD）功能以及一个高级SQL操作（比如group by）。最终能够在python控制台，输入一个http request，能够进行对应的数据库操作，返回对应的http response；（沈钟奕）
 * 前端：实现前端的UI和jquery Ajax，向后端发送请求数据。协同组员完成功能，最终能在网页上完成CURD请求（类比一个todo list），整合所有人的代码，交付；（廖庭辉）
+
