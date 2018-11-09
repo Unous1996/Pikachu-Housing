@@ -3,6 +3,22 @@ import urllib.request
 from bs4 import BeautifulSoup
 import json
 
+def cleanPrice(apt_price):
+	apt_price = apt_price.replace("$","")
+	if "," in apt_price:
+		apt_price = apt_price.replace(",","")
+	apt_price = apt_price[:4]
+	if " " in apt_price:
+		apt_price = apt_price.replace(" ","")
+	if "." in apt_price:
+		apt_price = apt_price.replace(".","")
+	#print(apt_price)
+	if apt_price.isdigit() == True:
+		apt_price = int(apt_price)
+	else:
+		apt_price = int("-1")
+	return apt_price
+
 def write_to_json(name,location,price,imgs_url,types,description,provider):
 	json_dict = dict()
 	json_dict["name"] = name
@@ -79,6 +95,9 @@ def findImageUG(url,i):
 			img_list.append(img_url)
 
 		apt_price = apt_info_list[1]
+		apt_price = cleanPrice(apt_price)
+		#print(apt_price)
+		#print(write_to_json(apt_addr_type,loc,apt_price,img_list,rm_type,apt_description,"University Group"))
 		f = open(fileName,'w')
 		f.write(write_to_json(apt_addr_type,loc,apt_price,img_list,rm_type,apt_description,"University Group"))
 		f.close()

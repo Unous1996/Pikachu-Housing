@@ -1,1 +1,0 @@
-{"name": "1010 W. Main, Urbana@1 bedroom@2 bedroom@2 bedroom", "location": "1010 W. Main, Urbana", "price": "$1420.00", "imgs_url": [], "types": "2 bedroom", "description": "Includes internet, washer & dryer in unit.", "provider": "University Group"}

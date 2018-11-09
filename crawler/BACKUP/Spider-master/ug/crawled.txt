@@ -161,7 +161,6 @@ https://ugroupcu.com/property-details/?property=55
 https://ugroupcu.com/property-details/?property=56
 https://ugroupcu.com/property-details/?property=59
 https://ugroupcu.com/property-details/?property=68
-https://ugroupcu.com/property-details/?property=71
 https://ugroupcu.com/property-details/?property=74
 https://ugroupcu.com/property-details/?property=75
 https://ugroupcu.com/property-details/?property=80
@@ -3095,7 +3094,6 @@ https://ugroupcu.com/siteadmin/save_brochure.php?property_id=96
 https://ugroupcu.com/siteadmin/save_brochure.php?property_id=97
 https://ugroupcu.com/siteadmin/save_brochure.php?property_id=98
 https://ugroupcu.com/snow-ice/
-https://ugroupcu.com/sublease-details/?sublease=215
 https://ugroupcu.com/sublease-details/?sublease=216
 https://ugroupcu.com/sublease-details/?sublease=217
 https://ugroupcu.com/sublease-details/?sublease=218
@@ -3115,6 +3113,7 @@ https://ugroupcu.com/sublease-details/?sublease=233
 https://ugroupcu.com/sublease-details/?sublease=235
 https://ugroupcu.com/sublease-details/?sublease=236
 https://ugroupcu.com/sublease-details/?sublease=237
+https://ugroupcu.com/sublease-details/?sublease=238
 https://ugroupcu.com/subleasing/
 https://ugroupcu.com/submit-your-sublease/
 https://ugroupcu.com/understanding-apartment-availability/

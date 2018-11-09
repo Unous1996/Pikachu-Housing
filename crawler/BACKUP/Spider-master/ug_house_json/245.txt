@@ -1,1 +1,0 @@
-{"name": "510 S. First, Champaign@7 bedrooms", "location": "510 S. First, Champaign", "price": "$4340.00", "imgs_url": [], "types": "7 bedrooms", "description": "NEW KITCHEN, NEW WOOD FLOORS, NEW UPGRADED FURNITURE!! This is a huge house with large bedrooms, washer and dryer in unit, and 3 1/2 bathrooms!  FREE PARKING!", "provider": "University Group"}
