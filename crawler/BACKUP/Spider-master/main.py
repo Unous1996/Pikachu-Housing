@@ -4,10 +4,10 @@ from spider import Spider
 from domain import *
 from general import *
 
-#PROJECT_NAME = 'ug'
-#HOMEPAGE = 'https://ugroupcu.com/'
-PROJECT_NAME = 'MHM_links'
-HOMEPAGE = 'https://www.mhmproperties.com/'
+PROJECT_NAME = 'ug'
+HOMEPAGE = 'https://ugroupcu.com/'
+#PROJECT_NAME = 'MHM_links'
+#HOMEPAGE = 'https://www.mhmproperties.com/'
 DOMAIN_NAME = get_domain_name(HOMEPAGE)
 QUEUE_FILE = PROJECT_NAME + '/queue.txt'
 CRAWLED_FILE = PROJECT_NAME + '/crawled.txt'

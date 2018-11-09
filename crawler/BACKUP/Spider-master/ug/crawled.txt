@@ -154,18 +154,18 @@ https://ugroupcu.com/property-details/?property=108
 https://ugroupcu.com/property-details/?property=116
 https://ugroupcu.com/property-details/?property=13
 https://ugroupcu.com/property-details/?property=16
-https://ugroupcu.com/property-details/?property=21
 https://ugroupcu.com/property-details/?property=22
+https://ugroupcu.com/property-details/?property=27
 https://ugroupcu.com/property-details/?property=31
-https://ugroupcu.com/property-details/?property=34
 https://ugroupcu.com/property-details/?property=55
 https://ugroupcu.com/property-details/?property=56
 https://ugroupcu.com/property-details/?property=59
-https://ugroupcu.com/property-details/?property=70
+https://ugroupcu.com/property-details/?property=68
 https://ugroupcu.com/property-details/?property=71
 https://ugroupcu.com/property-details/?property=74
 https://ugroupcu.com/property-details/?property=75
 https://ugroupcu.com/property-details/?property=80
+https://ugroupcu.com/property-details/?property=81
 https://ugroupcu.com/property-details/?property=88
 https://ugroupcu.com/property-details/arbor-apartments-birch-202-e-gregory-1112-s-second-champaign
 https://ugroupcu.com/property-details/arbor-apartments-cedar-212-e-gregory-1112-s-arbor-champaign
@@ -395,6 +395,7 @@ https://ugroupcu.com/property_images/floor_plan/eba2024fbdeeafe60364a4c910dce526
 https://ugroupcu.com/property_images/floor_plan/ebcf751789a843e38845d029333428221107-oregon-9.jpg
 https://ugroupcu.com/property_images/floor_plan/eccbbfd12ffaeb4ab422f4a4dc15e3f3daniel-st--103-e--unit-11-3-bedroom-1.jpg
 https://ugroupcu.com/property_images/floor_plan/edc8d5d8a52743bcd37bfc026fa11a5dwhite-st-604-e-unit-22--2-bedroom-1.jpg
+https://ugroupcu.com/property_images/floor_plan/ee31418f37d490a18821336fb16d9114107-daniel.jpg
 https://ugroupcu.com/property_images/floor_plan/f4f350887f459786d532ab7efd5092171108-nevada-2.jpg
 https://ugroupcu.com/property_images/floor_plan/f748e10b1844deb0d3af3ecc240f018c00x0x_gw0ueduivhd_600x450.jpg
 https://ugroupcu.com/property_images/floor_plan/f81de39fb7daa16c7c57c0b6a4475aa1204nharvey_2-br.jpg
@@ -800,6 +801,7 @@ https://ugroupcu.com/property_images/unit_images/141aefeb04555eaf89a64cd890656ba
 https://ugroupcu.com/property_images/unit_images/14466cae0e34fc6add342a350aa3484fimg_6290_1_2.jpg
 https://ugroupcu.com/property_images/unit_images/14966bfcd41d4aa43443b9edd83245e9img_1177.jpg
 https://ugroupcu.com/property_images/unit_images/149ee7b98f8603e931b81e3afc282b0d204nha-01-205-2br-livrm-dsc_9280a--large-.jpg
+https://ugroupcu.com/property_images/unit_images/14ad7f7fc04d378fe75e5d64890265688ff7ec8160cba09a50f6ef7f1cc4eddauntitled-3.jpg
 https://ugroupcu.com/property_images/unit_images/14af643d7a6f9d6a0f694c76bf6a0de9img_3015.jpg
 https://ugroupcu.com/property_images/unit_images/14b0e107063455eb7d7312d161979404202-e-columbia-103-champaign-il_photo_7.jpg
 https://ugroupcu.com/property_images/unit_images/14ca8cffa99e5fdc2d01a7817d46ad5e309-e-healey-unit-3-champaign-il-61820_photo_16.jpg
@@ -822,6 +824,7 @@ https://ugroupcu.com/property_images/unit_images/164a5b553a63f58f7d33e1dc1e24eb3
 https://ugroupcu.com/property_images/unit_images/1688f0849a2f13cd8c0ea963f168b5fdimg_8643_4_5.jpg
 https://ugroupcu.com/property_images/unit_images/168d57432b52c95348377ccfb39b31c5img_4658.jpg
 https://ugroupcu.com/property_images/unit_images/16b17fc6d9c8c0b3676773469edd8661f3b8d4b560a4fbf5a19ea9fb8784a10aimg_5814.jpg
+https://ugroupcu.com/property_images/unit_images/16c1b442c329e6dd5ab71aed65363bdb0f73e44e2b5d33d036df903467158fad7318cff4-75ac-4665-b240-76e3a3b792d159b8b42a-948c-4d5a-8849-b7f9dc5e1327.jpg
 https://ugroupcu.com/property_images/unit_images/16c2c8bdb4ce0773d159a4058c1c31a7203ngr-2br-03-206-livrm-dsc_0976--large-.jpg
 https://ugroupcu.com/property_images/unit_images/16c56ddff45f351a69c7077fd808a85dimg_0519_20_21.jpg
 https://ugroupcu.com/property_images/unit_images/16c89e4b6bf9160393f093375bda6f4eimg_5792.jpg
@@ -869,6 +872,7 @@ https://ugroupcu.com/property_images/unit_images/1c583a887bfb4aacb9e851ca7d2692b
 https://ugroupcu.com/property_images/unit_images/1c5924e94c40ccedfebfbd1906b8105aimg_5753_4_5.jpg
 https://ugroupcu.com/property_images/unit_images/1c91e5ebb9bc23d7c0dd631ed11ed3eeimg_2095_6_7.jpg
 https://ugroupcu.com/property_images/unit_images/1ca7474fe59f31982d97213ac3b2d5a01005wst-1c-livrm-205-dsc_0057--large-.jpg
+https://ugroupcu.com/property_images/unit_images/1ca7fdac19aa8278a677df036effe635274a92b64a055bbfeb5686fdcf4fce9dimg_4048.jpg
 https://ugroupcu.com/property_images/unit_images/1cf4f37607551d75b206fc95f0a76b331007wcl-2b-06-bed1-1-dsc_0100-large.jpg
 https://ugroupcu.com/property_images/unit_images/1cfcbb0711a4d58bf0ff8767f56dac72img_0243_4_5.jpg
 https://ugroupcu.com/property_images/unit_images/1d155a3db6a4a4ba2bdc5af1bf3c3081img_4752.jpg
@@ -895,6 +899,7 @@ https://ugroupcu.com/property_images/unit_images/1ec29d224fd0fa62307f430afb85fae
 https://ugroupcu.com/property_images/unit_images/1ed7a5f17d23d8fff48dda04c4490729img_6483_4_5.jpg
 https://ugroupcu.com/property_images/unit_images/1ef63f0d4fc6cffc4f334cff76d9fc3bimg_6855_6_7.jpg
 https://ugroupcu.com/property_images/unit_images/1f058f2d38e004a3cd9387f5a1dde7c5img_4746_7_8.jpg
+https://ugroupcu.com/property_images/unit_images/1f0f48fbccbb9049a44be84686b63a5eae84b9241da82d202d871d60f68ca709img_4055.jpg
 https://ugroupcu.com/property_images/unit_images/1f3841822a14226829a11b5b7dc876a5811wma-02-livrm-dsc_0262--large-.jpg
 https://ugroupcu.com/property_images/unit_images/1f449d54ab650aae815ebdfead62646bimg_8379_80_81.jpg
 https://ugroupcu.com/property_images/unit_images/1f484fa1ae65afe14c9292538f7ca942img_5378_79_80.jpg
@@ -916,6 +921,7 @@ https://ugroupcu.com/property_images/unit_images/21086a1a27c0231fad5a4ef0126c98d
 https://ugroupcu.com/property_images/unit_images/210d845a079f35e2068676e8f151779dimg_0750_1_2.jpg
 https://ugroupcu.com/property_images/unit_images/210fe5d347c298db3a907603d7c7d9861010wma-2e-07-bath1-306-dsc_0845-small--large-.jpg
 https://ugroupcu.com/property_images/unit_images/214dc756229cf3eff719aa86e406f16d508-s-mattis-champaign-il_photo_22.jpg
+https://ugroupcu.com/property_images/unit_images/2171795c9b6f6de851c164fe87a7126e29119d8137927619a402c4ddd9ff013ad0893c37-adc6-4cfd-b173-084dae908329a7f1cf05-2ee8-4d2c-a88f-b4f4341190a8.jpg
 https://ugroupcu.com/property_images/unit_images/2172bbb2d4a9ed2b376950ac8c7d0d6f306nha-2br-s-1st-09-bed2-101-dsc_0112--large-.jpg
 https://ugroupcu.com/property_images/unit_images/21b444ca2e908c7a9cd13c94166d27a8202-e-columbia-001-champaign-il_photo_3.jpg
 https://ugroupcu.com/property_images/unit_images/21c90a4d5805ce659235b7a577affae9img_1891_2_3.jpg
@@ -1083,12 +1089,14 @@ https://ugroupcu.com/property_images/unit_images/34e14ad01ed4dede77e25761becf5c4
 https://ugroupcu.com/property_images/unit_images/351d5d215df54cd049c605e00c0673a0img_0609_10_11.jpg
 https://ugroupcu.com/property_images/unit_images/352a029737881bcacd0dadb8599beb6cimg_1963_4_5.jpg
 https://ugroupcu.com/property_images/unit_images/3540c62c701828ab3ea0de49252ef4aeimg_3358.jpg
+https://ugroupcu.com/property_images/unit_images/3552fcabb5f7f962fd9c9e1f6772a0f3fce370dc1d559c23a1899eb712bdc843untitled-2.jpg
 https://ugroupcu.com/property_images/unit_images/355788a3e569b22042d003ac05a7c68fimg_6426_7_8.jpg
 https://ugroupcu.com/property_images/unit_images/3576aa20508fda3abca44b6abbbdd1381007wcl-2b-08-bathroom-1-dsc_0262small-large.jpg
 https://ugroupcu.com/property_images/unit_images/35802036001cfa4b98934e4fbfd2ae9eimg_2016.jpg
 https://ugroupcu.com/property_images/unit_images/358755ffe6ed22cc5f8473d218717d001010wma-1c-05-205-bedroom-dsc_0132-small--large-.jpg
 https://ugroupcu.com/property_images/unit_images/35aa6da35302cc660b132f229a8901841007wcl-1br-04-06-kitchen-dsc_0360-small.jpg
 https://ugroupcu.com/property_images/unit_images/35b44d9b5f60bba5db70cf5a1c206dcf20160809_184129.jpg
+https://ugroupcu.com/property_images/unit_images/35cc96e2b02f89eb93fe31d51a61cfe7c19f389f00c48ec1c92e48815ec7f872ba779661-15e3-4927-afa8-43ad317530aa61190930-fde5-4e77-ba8e-8de4a8116ffa.jpg
 https://ugroupcu.com/property_images/unit_images/35d3f809ce4490a19d31077dfc900cf31010wma-1bc-05-bath-313-dsc_0131--large-.jpg
 https://ugroupcu.com/property_images/unit_images/35ea6d0f1df122b12461880e6339aeb7img_9672_3_4.jpg
 https://ugroupcu.com/property_images/unit_images/366131e2083fd29404a3793f0b95ca23306nha-2br-3rd-12-303-br2-dsc_0917-fnl--large-.jpg
@@ -1493,6 +1501,7 @@ https://ugroupcu.com/property_images/unit_images/6365ccf51607482e006d89ed5f6d0af
 https://ugroupcu.com/property_images/unit_images/636e3acd0435cc752fdb4f38a5aa76ef1008wma-1br-m-09-208-bath-dsc_0563-large.jpg
 https://ugroupcu.com/property_images/unit_images/637493a5bd6f6643f7d47ba48dd74abcimg_6984_5_6.jpg
 https://ugroupcu.com/property_images/unit_images/63cee3558a34fccf24201e10035605e9img_3589.jpg
+https://ugroupcu.com/property_images/unit_images/63d92176298f417099082d496d9e964520a70be98734f5ff3fb587ace5971873untitled-6.jpg
 https://ugroupcu.com/property_images/unit_images/63f112ec4dfec4e4cc1c69ae2650d43c00x0x_ek1wukimh7w_600x450.jpg
 https://ugroupcu.com/property_images/unit_images/640ed07ea5e3da201fa65f21d8cbc9df209-coler-2.jpg
 https://ugroupcu.com/property_images/unit_images/641c9d46d4aaa858ca1e056c1127f9d4602-e-stoughton-23-champaign-il_photo_9.jpg
@@ -1691,6 +1700,7 @@ https://ugroupcu.com/property_images/unit_images/79a5fc001de2de03bca82b7b241a43a
 https://ugroupcu.com/property_images/unit_images/79f9018fc7ae85529bed69a5cb6ec11cimg_5435_6_7.jpg
 https://ugroupcu.com/property_images/unit_images/7a1ab91600f06be95f3f1fd7ebb67a8cimg_8331_2_3.jpg
 https://ugroupcu.com/property_images/unit_images/7a392393e9fb33e1405966e9d8d3735dimg_5593.jpg
+https://ugroupcu.com/property_images/unit_images/7a3fcd35d48de411b3caf5977666c84a66ce2f91f172beb2f44cfc4db93fcd50img_4051.jpg
 https://ugroupcu.com/property_images/unit_images/7a4aa587afa42c0f328457d9e0a64b02img_5615_6_7.jpg
 https://ugroupcu.com/property_images/unit_images/7a52d70b244cf8bc79254c99ae0570f4img_8832_3_4.jpg
 https://ugroupcu.com/property_images/unit_images/7a6be07f8e9c9268038c118b9a70c29cimg_20171009_141928.jpg
@@ -1735,6 +1745,7 @@ https://ugroupcu.com/property_images/unit_images/7e15b20b9ce39f902517a41ab6e4d63
 https://ugroupcu.com/property_images/unit_images/7e5c333f6a393a1531abfdc1a8e20a6f1002wcl-2b-08-kit-305-dsc_0202-large.jpg
 https://ugroupcu.com/property_images/unit_images/7e5fdc4bdeb4512646666b37ae97d2351002wcl-2b-12-bed2-305-dsc_0290-large.jpg
 https://ugroupcu.com/property_images/unit_images/7e9f409dcbc7259d631d5787d2c2abbdimg_1365_6_7.jpg
+https://ugroupcu.com/property_images/unit_images/7ed6e158d8f9d0375ab942f40e349dbb3d68e5cdc451c026512707fd24e66820img_4126.jpg
 https://ugroupcu.com/property_images/unit_images/7ee827ed6f7186894c237a851220c27f508-s-mattis-champaign-il_photo_20.jpg
 https://ugroupcu.com/property_images/unit_images/7eedfd3004967344d6d55a6af475fd7aimg_4367_8_9.jpg
 https://ugroupcu.com/property_images/unit_images/7f1e0335575d567502147421ee301cbbimg_4804.jpg
@@ -2267,6 +2278,7 @@ https://ugroupcu.com/property_images/unit_images/b7d767b41c77ffdac1c727a7a338f83
 https://ugroupcu.com/property_images/unit_images/b7df602229467af6d6120a0213634759img_6468_69_70.jpg
 https://ugroupcu.com/property_images/unit_images/b7fa4ef6a15b522da4fc29a72637ba3bimg_0990_1_2.jpg
 https://ugroupcu.com/property_images/unit_images/b81db60b64b23da20a6df10ea70022d258-e-john-9-champaign-il_photo_15.jpg
+https://ugroupcu.com/property_images/unit_images/b8221a70822e486e66953d41a2da3275548e42f460309f499b86562cd49e5036img_4131.jpg
 https://ugroupcu.com/property_images/unit_images/b83e40f3915eed3addba5d7c30fd2ba230977_641732.jpg
 https://ugroupcu.com/property_images/unit_images/b87dd7b13bc986ce546929bb9999522b1003wma-2c-2nd-03-204-livrm-dsc_0593-small--large-.jpg
 https://ugroupcu.com/property_images/unit_images/b883fc7dc7ec86b6b071d08347623ae2img_5927_8_9.jpg
@@ -2492,6 +2504,7 @@ https://ugroupcu.com/property_images/unit_images/d0b835d815fca7776d02acc3dd3a6e1
 https://ugroupcu.com/property_images/unit_images/d0bb3a39b84b870ab2f5a804ae231dfdimg_0531_2_3.jpg
 https://ugroupcu.com/property_images/unit_images/d0c4434e01a4063ac0fda83e59c0e17c135_clark_medium-floorplan--1-.jpg
 https://ugroupcu.com/property_images/unit_images/d0d17bc0e439c3879284791ac0808c79202-e-columbia-103-champaign-il_photo_13.jpg
+https://ugroupcu.com/property_images/unit_images/d0e8841701b3a9539afa36d511b7764dbae438afe859b26a8f0aaac0604fe558img_4105.jpg
 https://ugroupcu.com/property_images/unit_images/d128173194aab82bf36320078fd8257f202-e-columbia-103-champaign-il_photo_9.jpg
 https://ugroupcu.com/property_images/unit_images/d14bae80bc7f88ff73b3f8300ffc55621010wma-1a-04-bedroom-220-dsc_0619--large-.jpg
 https://ugroupcu.com/property_images/unit_images/d1853759971bfd4d9bcdb3fdc135d72cimg_2584.jpg
@@ -3082,11 +3095,6 @@ https://ugroupcu.com/siteadmin/save_brochure.php?property_id=96
 https://ugroupcu.com/siteadmin/save_brochure.php?property_id=97
 https://ugroupcu.com/siteadmin/save_brochure.php?property_id=98
 https://ugroupcu.com/snow-ice/
-https://ugroupcu.com/sublease-details/?sublease=209
-https://ugroupcu.com/sublease-details/?sublease=210
-https://ugroupcu.com/sublease-details/?sublease=211
-https://ugroupcu.com/sublease-details/?sublease=213
-https://ugroupcu.com/sublease-details/?sublease=214
 https://ugroupcu.com/sublease-details/?sublease=215
 https://ugroupcu.com/sublease-details/?sublease=216
 https://ugroupcu.com/sublease-details/?sublease=217
@@ -3102,6 +3110,11 @@ https://ugroupcu.com/sublease-details/?sublease=228
 https://ugroupcu.com/sublease-details/?sublease=229
 https://ugroupcu.com/sublease-details/?sublease=230
 https://ugroupcu.com/sublease-details/?sublease=231
+https://ugroupcu.com/sublease-details/?sublease=232
+https://ugroupcu.com/sublease-details/?sublease=233
+https://ugroupcu.com/sublease-details/?sublease=235
+https://ugroupcu.com/sublease-details/?sublease=236
+https://ugroupcu.com/sublease-details/?sublease=237
 https://ugroupcu.com/subleasing/
 https://ugroupcu.com/submit-your-sublease/
 https://ugroupcu.com/understanding-apartment-availability/

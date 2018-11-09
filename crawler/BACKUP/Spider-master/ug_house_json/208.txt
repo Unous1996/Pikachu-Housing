@@ -1,0 +1,1 @@
+{"name": "605 S. Fourth, Champaign@Studio@2 bedroom@4 bedroom", "location": "605 S. Fourth, Champaign", "price": "$1825.00", "imgs_url": [], "types": "4 bedroom", "description": "", "provider": "University Group"}

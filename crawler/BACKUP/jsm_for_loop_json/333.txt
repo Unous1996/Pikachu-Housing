@@ -1,0 +1,1 @@
+{"name": "Please select your suite", "location": "Location: 508 E Green St, Champaign, IL, 61820, US", "price": "Available Immediately", "imgs_url": [], "types": "Size: Efficiency ", "description": "", "provider": "jsmliving"}

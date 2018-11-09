@@ -45,10 +45,12 @@ class Spider:
             Spider.crawled.add(page_url)
             Spider.update_files()
             #UG property
-            #if "property-details" in page_url:
-            #    findImageUG(page_url,str(len(Spider.crawled)))
-            if "property" in page_url:
-                findImageMHM(page_url,str(len(Spider.crawled)))
+            if "property-details" in page_url:
+                findImageUG(page_url,str(len(Spider.crawled)))
+
+            #MHM
+            #if "property" in page_url:
+            #    findImageMHM(page_url,str(len(Spider.crawled)))
 
     # Converts raw response data into readable information and checks for proper html formatting
     @staticmethod
@@ -56,9 +58,13 @@ class Spider:
         html_string = ''
         try:
             ssl._create_default_https_context = ssl._create_unverified_context
-            headers = {'User-Agent': 'Mozilla/5.0'}
-            req = urllib.request.Request(url=page_url,headers=headers)
-            response = urlopen(req)
+            #MHM property 
+            #headers = {'User-Agent': 'Mozilla/5.0'}
+            #req = urllib.request.Request(url=page_url,headers=headers)
+            #response = urlopen(req)
+
+            #University Group ONLY
+            response = urlopen(page_url)
             if 'text/html' in response.getheader('Content-Type'):
                 html_bytes = response.read()
                 html_string = html_bytes.decode("utf-8")

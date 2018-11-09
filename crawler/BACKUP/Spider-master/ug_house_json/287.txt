@@ -1,0 +1,1 @@
+{"name": "102 E. Healey, Champaign@5 bedrooms", "location": "102 E. Healey, Champaign", "price": "$3100.00", "imgs_url": [], "types": "5 bedrooms", "description": "Huge 5 bedroom/3.5 bathroom house, washer & dryer in unit, includes parking.", "provider": "University Group"}

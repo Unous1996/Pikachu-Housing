@@ -1,0 +1,1 @@
+{"name": "722 S. Broadway Ave., Urbana@1 bedroom", "location": "722 S. Broadway Ave., Urbana", "price": "$615.00", "imgs_url": [], "types": "1 bedroom", "description": "Rent includes heat, water, and sanitation!", "provider": "University Group"}
