@@ -10,7 +10,8 @@ class HouseSerializer(serializers.ModelSerializer):
             'name',
             'price',
             'location',
-            'imgs_url',
+            'cover_img',
             'types',
             'description',
+            'imgs',
         )

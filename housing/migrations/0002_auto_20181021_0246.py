@@ -11,11 +11,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='house',
-            name='imgs_url',
-            field=models.CharField(max_length=64, blank=True),
-        ),
+
         migrations.AlterField(
             model_name='house',
             name='location',
