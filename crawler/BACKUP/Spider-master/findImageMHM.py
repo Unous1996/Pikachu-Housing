@@ -67,15 +67,25 @@ def findImageMHM(url,i):
 		for pb in p.find_all("div",{"class":"pricebox"}):
 			info_text = remove_header_tag(pb.text," View Typical Unit","")
 			#append_to_file(fileName,info_text)
-			print(info_text)
+			#print(info_text)
 		for pb in p.find_all('span'):
 			apt_price = pb.text
-			apt_price = apt_price[5:11]
+			for i in range(0,len(apt_price)):
+				if apt_price[i] =='$':
+					#unsafe operation
+					apt_price = apt_price[i+1:i+5]
+					break
+			#apt_price = apt_price[5:11]
 			print(apt_price)
-			apt_price = int(re.sub("\D","",apt_price))
-			apt_price_list.append(apt_price)
+			apt_price = re.sub("\D","",apt_price)
+			if apt_price.isdigit():
+				apt_price = int(apt_price)
+				apt_price_list.append(apt_price)
 			#continue
-		apt_min_price = min(apt_price_list)
+		if len(apt_price_list) != 0:
+			apt_min_price = min(apt_price_list)
+		else:
+			apt_min_price = -1
 		#print(apt_min_price)
 	for p in photos:
 		for img in p.find_all('a'):
@@ -97,5 +107,5 @@ def findImageMHM(url,i):
 
 
 
-findImageMHM("https://www.mhmproperties.com/property/805-s-locust-street/",0)
+#findImageMHM("https://www.mhmproperties.com/property/606-e-white-street/",0)
 #findImageUG("https://ugroupcu.com/property-details/312-w-springfield-urbana/",0)
