@@ -16,6 +16,6 @@ distance_detail = DistanceViewSet.as_view({
 
 urlpatterns = format_suffix_patterns([
 	url(r'^$', views.api_root, name='api_root'),
-	url(r'^distance/$', snippet_list, name='snippet-list'),
-	url(r'^distance/(?P<pk>[0-9]+)/$', snippet_detail, name='snippet-detail'),
+	url(r'^distance/$', distance_list, name='distance-list'),
+	url(r'^distance/(?P<pk>[0-9]+)/$', distance_detail, name='distance-detail'),
 ])
