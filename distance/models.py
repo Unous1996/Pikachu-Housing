@@ -9,6 +9,6 @@ from department.models import Department
 
 
 class Distance(models.Model):
-    house_id = models.ForeignKey(House, blank=False, null=False, related_name='house_id', on_delete=models.CASCADE)
-    department_id = models.ForeignKey(Department, blank=False, null=False, related_name='depart_id', on_delete=models.CASCADE)
+    house_id = models.ForeignKey(House, blank=False, null=False, related_name='distance', on_delete=models.CASCADE)
+    department_id = models.ForeignKey(Department, blank=False, null=False, related_name='distance', on_delete=models.CASCADE)
     distance = models.FloatField(default=0, blank=False)

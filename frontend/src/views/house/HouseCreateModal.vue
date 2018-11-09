@@ -48,12 +48,12 @@
                 </v-flex>
                 <v-flex xs12>
                   <v-text-field
-                    name="imgs_url"
+                    name="cover_img"
                     label="Image url"
                     v-model="house.imgs_url"
                     v-validate="'url'"
-                    :error-messages="errors.collect('imgs_url')"
-                    data-vv-name="imgs_url"
+                    :error-messages="errors.collect('cover_img')"
+                    data-vv-name="cover_img"
                   ></v-text-field>
                 </v-flex>
                 <v-textarea

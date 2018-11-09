@@ -42,7 +42,8 @@ INSTALLED_APPS = (
     'housing',
     'department',
     'provider',
-    'distance'
+    'distance',
+    'users',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,6 +63,13 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000' # Here was the problem indeed and it has to be http://localhost:3000, not http://localhost:3000/
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAdminUser',
+    )
+}
 
 ROOT_URLCONF = 'settings.urls'
 

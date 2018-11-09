@@ -7,9 +7,9 @@
         <v-layout row wrap justify-space-between>
           <v-flex md8 xs12>
           <el-carousel type="card">
-              <el-carousel-item v-for="(item,i) in houses" :key="i" :src="item.imgs_url">
+              <el-carousel-item v-for="(item,i) in houses" :key="i" :src="item.cover_img">
                 <v-layout justify-center>
-                  <img :src="item.imgs_url"/>
+                  <img :src="item.cover_img"/>
                   <h1 class="white--text ml-4 carousel-title">{{item.name}}</h1>
                 </v-layout>
               </el-carousel-item>
@@ -80,7 +80,7 @@
                     <v-layout row>
                       <v-flex md3 v-show="$vuetify.breakpoint.mdAndUp" >
                         <v-card :to="'/house/'+item.id">
-                          <v-img :src="item.imgs_url" @click.stop="$router.push(item.id)"></v-img>
+                          <v-img :src="item.cover_img" @click.stop="$router.push(item.id)"></v-img>
                         </v-card>
                       </v-flex>
                       <v-flex md9 xs12>

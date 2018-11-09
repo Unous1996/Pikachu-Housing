@@ -34,7 +34,7 @@
               </div>
             </div>
             <v-divider> </v-divider>
-            <v-img :src="house.imgs_url" style="margin-top: 10px"></v-img>
+            <v-img :src="house.cover_img" style="margin-top: 10px"></v-img>
           </v-flex>
           <v-flex class="mt-4">
             <div v-html="markdownContent(house.description)" id="mdeditor"></div>
