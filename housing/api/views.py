@@ -10,7 +10,7 @@ class HouseViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = House.objects.all()
-        name= self.request.query_params.get('name', None)
+        name = self.request.query_params.get('name', None)
         if name is not None:
             queryset = queryset.filter(name__icontains=name)
         return queryset
