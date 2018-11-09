@@ -2,6 +2,7 @@ from django.db import models
 from provider.models import Provider
 # Create your models here.
 
+
 class House(models.Model):
     name = models.CharField(max_length=32, )
     location = models.CharField(max_length=128, blank=True)
@@ -11,3 +12,5 @@ class House(models.Model):
     description = models.CharField(max_length=600, blank=True)
     provider = models.ForeignKey(Provider, blank=True, null=True)
 
+    def __str__(self):
+        return str(self.id) + ' (' + self.name + ')'

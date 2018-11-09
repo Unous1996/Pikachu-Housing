@@ -117,4 +117,4 @@ venv.bak/
 .spamassassinenable
 .viminfo
 
-.idea/.DS_Store
+.idea/
