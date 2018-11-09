@@ -12,5 +12,9 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-
+        migrations.AddField(
+            model_name='house',
+            name='provider',
+            field=models.ForeignKey(blank=True, to='provider.Provider', null=True),
+        ),
     ]
