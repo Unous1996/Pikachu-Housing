@@ -1,0 +1,1 @@
+{"name": "705 W. Main, Urbana@Studio@1 bedroom@2 bedroom@3 bedroom@4 bedroom", "location": "705 W. Main, Urbana", "price": 1775, "imgs_url": [], "types": "4 bedroom", "description": "Rent includes heat, water, trash, sewer, recycling", "provider": "University Group"}

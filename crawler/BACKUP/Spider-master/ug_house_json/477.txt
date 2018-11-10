@@ -1,0 +1,1 @@
+{"name": "805 S. Lincoln, Urbana@Studio@1 bedroom@4 bedrooms", "location": "805 S. Lincoln, Urbana", "price": 1680, "imgs_url": [], "types": "4 bedrooms", "description": "Washer and dryer in unit.", "provider": "University Group"}

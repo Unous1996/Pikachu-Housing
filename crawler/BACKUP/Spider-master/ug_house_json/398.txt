@@ -1,0 +1,1 @@
+{"name": "310 S. State, Champaign@7 bedroom", "location": "310 S. State, Champaign", "price": 2800, "imgs_url": [], "types": "7 bedroom", "description": "3 full bathrooms! Includes parking, washer and dryer in unit, furnished!", "provider": "University Group"}
