@@ -8,7 +8,5 @@ class ProviderSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name',
-            'url',
-            'email',
-            'phone',
+            'location',
         )
