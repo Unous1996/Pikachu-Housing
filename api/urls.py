@@ -6,6 +6,7 @@ from department.api.views import DepartmentViewSet
 
 router = routers.DefaultRouter()
 router.register(r'house', HouseViewSet, base_name='house')
+router.register(r'provider', ProviderViewSet, base_name='provider')
 router.register(r'distance', DistanceViewSet, base_name='distance')
 router.register(r'department', DepartmentViewSet, base_name='department')
 
