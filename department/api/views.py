@@ -13,7 +13,7 @@ class DepartmentViewSet(viewsets.ModelViewSet):
         serializers = DepartmentSerializer(queryset, many=True)
         return Response(serializers.data)
 
-     def retrieve(self, request, pk):
+    def retrieve(self, request, pk):
         queryset = Department.objects.raw('SELECT * FROM department_department WHERE department_department.id = %s',[pk])
         serializers = DepartmentSerializer(queryset, many=True)
         return Response(serializers.data)

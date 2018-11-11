@@ -3,6 +3,7 @@ from django.conf.urls import include, url, patterns
 from housing.api.views import HouseViewSet
 from distance.api.views import DistanceViewSet
 from department.api.views import DepartmentViewSet
+from provider.api.views import ProviderViewSet
 
 router = routers.DefaultRouter()
 router.register(r'house', HouseViewSet, base_name='house')
