@@ -48,7 +48,7 @@
           </v-list-tile>
 
           <v-list-tile v-else>
-            <v-list-tile-title><v-icon>forward</v-icon> Sign in </v-list-tile-title>
+            <v-list-tile-title><LoginModal></LoginModal></v-list-tile-title>
           </v-list-tile>
 
         </v-list>
@@ -63,6 +63,9 @@ export default {
   props: ['toggle'],
   created() {
     this.$store.dispatch('user/getUser')
+  },
+  components: {
+    "LoginModal": () => import('./LoginModal.vue'),
   },
   computed: mapState({
     user: state => state.user.detail

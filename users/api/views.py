@@ -8,7 +8,7 @@ from users.api.permissions import UserPermission
 from rest_framework import permissions
 from rest_framework.decorators import detail_route, list_route
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.contrib.auth import login as django_login, authenticate, logout as django_logout
 
 
@@ -43,7 +43,7 @@ class UserViewset(viewsets.ModelViewSet):
         django_logout(request)
         return Response({'next': '/'}, status=status.HTTP_200_OK)
 
-    @list_route(methods=['POST'])
+    @list_route(methods=['POST'], permission_classes=[AllowAny])
     def signin(self, request):
         serializer = SigninSerializer(data=request.data)
         if not serializer.is_valid():
@@ -51,12 +51,12 @@ class UserViewset(viewsets.ModelViewSet):
 
         username_or_email = serializer.data['username_or_email']
         password = serializer.data['password']
-
         user = UserService.get_user_by_username_or_email(username_or_email)
         if not user:
-            error = _('Username or email does not exist.')
+            error = 'Username or email does not exist.'
             return Response({'error': error}, status=status.HTTP_401_UNAUTHORIZED)
 
+        user.backend = 'django.contrib.auth.backends.ModelBackend'
         django_login(request, user)
         remember = serializer.data['remember']
         if not remember:
