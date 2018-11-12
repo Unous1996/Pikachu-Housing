@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from math import *
 # Create your models here.
 
 class Department(models.Model):
@@ -16,9 +17,9 @@ class Department(models.Model):
 	    if self.latitude and self.longitude:
 	    	from distance.models import Distance
 	    	from housing.models import House
-	        house_set = House.objects.raw('SELECT * FROM housing_house WHERE latitude IS NOT NULl and longitude IS NOT NULL')
+	        house_set = House.objects.raw('SELECT * FROM housing_house WHERE latitude IS NOT NULL and longitude IS NOT NULL')
 	        for house_item in house_set:
-	            gap = abs(self.latitude - house_item.latitude) + abs(self.longitude - house_item.longitude)
+	            gap = math.sqrt((self.latitude - house_item.latitude)*(self.latitude - house_item.latitude) + (self.longitude - house_item.longitude)*(self.longitude - house_item.longitude))
 	            distance = Distance(house_id = house_item, department_id = self, distance = gap)
 	            distance.save()    
 	
