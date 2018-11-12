@@ -20,7 +20,6 @@ class House(models.Model):
 
     def __str__(self):
         return str(self.id) + ' (' + self.name + ')'
-
     
     def save(self, **kwargs):
         from distance.models import Distance

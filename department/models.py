@@ -11,7 +11,6 @@ class Department(models.Model):
     def __str__(self):
         return str(self.id) + ' (' + self.name + ')'
 
-    
     def save(self, **kwargs):
 	    super(Department, self).save(**kwargs)
 	    if self.latitude and self.longitude:
