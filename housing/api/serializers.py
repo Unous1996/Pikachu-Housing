@@ -15,5 +15,6 @@ class HouseSerializer(serializers.ModelSerializer):
             'description',
             'imgs',
             'latitude',
-            'longitude'
+            'longitude',
+            'provider'
         )
