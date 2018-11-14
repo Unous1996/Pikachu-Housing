@@ -16,7 +16,7 @@ class House(models.Model):
     types = models.CharField(max_length=32, blank=True)
     description = models.CharField(max_length=600, blank=True)
     provider = models.ForeignKey(Provider, blank=True, null=True)
-    imgs = ArrayField(models.CharField(max_length=128, blank=True), size=100, default=[], blank=True)
+    imgs_url = ArrayField(models.CharField(max_length=128, blank=True), size=100, default=[], blank=True)
     latitude = models.FloatField(blank=True, null=True, default=0,validators=[MaxValueValidator(90), MinValueValidator(-90)])
     longitude = models.FloatField(blank=True, null=True, default=0,validators=[MaxValueValidator(180), MinValueValidator(-180)])
 
