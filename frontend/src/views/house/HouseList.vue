@@ -115,7 +115,16 @@
         </v-layout>
         <v-flex md12 class="mt-3">
           <div class="text-xs-center">
-          </div>
+              <el-pagination
+                layout="prev, pager, next"
+                :total="totalNums"
+                :currentPage="this.$route.query.page ? this.$route.query.page : 1"
+                @current-change="(page) => toRoute('house',{}, {page: page})"
+                @next-click="(page) => toRoute('house',{}, {page: page})"
+                @prev-click="(page) => toRoute('house',{}, {page: page})"
+              >
+              </el-pagination>
+            </div>
         </v-flex>
 
       </v-container>
@@ -136,7 +145,12 @@ export default {
     this.$store.dispatch('house/getList', query)
   },
   computed: mapState({
-    houses: state => state.house.list.results
+    totalNums: state => state.house.list.count,
+    houses: state => state.house.list.results,
+    currentPage: () => {
+      const query = this.$route.query
+      return query.page ? query.page : 1
+    }
   }),
   methods: {
     deleteHouse: function (id) { // No arrow function here...
@@ -147,7 +161,10 @@ export default {
           message: "Your chosen house has been deleted."
         })
       })
-    }
+    },
+    toRoute (rname, rparams = {}, query = {}) {
+      this.$router.push({path: rname, params: rparams, query: query})
+    },
   }
 }
 </script>
