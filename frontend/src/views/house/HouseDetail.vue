@@ -34,7 +34,12 @@
               </div>
             </div>
             <v-divider> </v-divider>
-            <v-img :src="house.cover_img" style="margin-top: 10px"></v-img>
+            <el-carousel autoplay=false trigger="click" height="500px" interval="6000">
+              <el-carousel-item  v-for="img in house.imgs_url" :key="item">
+                <v-img :src="house.cover_img + img" style="margin-top: 10px"></v-img>
+              </el-carousel-item>
+            </el-carousel>
+
           </v-flex>
           <v-flex class="mt-4">
             <div v-html="markdownContent(house.description)" id="mdeditor"></div>

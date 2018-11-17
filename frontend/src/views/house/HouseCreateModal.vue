@@ -105,6 +105,7 @@ export default {
       house: {
         name: '',
         price: 0,
+        cover_img: '',
         imgs_url: '',
         location: '',
         description: '',
@@ -127,6 +128,12 @@ export default {
       })
     },
     createHouse: function (house) { // No arrow function here...
+      let splitedURL = house.imgs_url.split('/')
+      let originalURL = house.imgs_url
+      house.imgs_url = splitedURL[splitedURL.length - 1]
+      house.cover_img = originalURL.slice(0, (originalURL.length - house.imgs_url.length))
+      house.imgs_url = [splitedURL[splitedURL.length - 1]]
+
       this.$store.dispatch('house/createHouseObj',house).then(() => {
         this.$notify({
           title: "Create successfully",
