@@ -15,7 +15,7 @@ class Department(models.Model):
 
     def save(self, **kwargs):
 	    super(Department, self).save(**kwargs)
-	    if self.latitude and self.longitude:
+	    if self.latitude != 0 or self.longitude != 0:
 	    	from distance.models import Distance
 	    	from housing.models import House
 	        house_set = House.objects.raw('SELECT * FROM housing_house WHERE latitude <> 0 and longitude <> 0')
