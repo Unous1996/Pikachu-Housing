@@ -62,8 +62,18 @@
               <v-flex md3>
                 <h1>House list</h1>
               </v-flex>
-              <v-flex md3 class="text-xs-right">
+              <v-flex md5 class="text-xs-right list-header-bar">
                 <HouseCreateModal></HouseCreateModal>
+                <HouseFilter></HouseFilter>
+
+                <el-dropdown trigger="click">
+                  <v-btn flat><v-icon>sort</v-icon>Sort</v-btn>
+                  <el-dropdown-menu slot="dropdown">
+                    <div v-for="(key,i) in sortMethods" :key="i">
+                      <el-dropdown-item @click="">{{key.name}}</el-dropdown-item>
+                    </div>
+                  </el-dropdown-menu>
+                </el-dropdown>
 
               </v-flex>
               </v-layout>
@@ -94,9 +104,16 @@
                             <span class="grey--text">{{item.description.slice(0,200)}}...</span>
                           </v-card-text>
                         <v-card-actions>
-                          <v-btn icon flat color="green" :to="'/house/'+item.id"><v-icon>details</v-icon></v-btn>
-                          <v-btn icon flat color="orange"><v-icon>share</v-icon></v-btn>
-                          <v-btn icon flat color="red" v-on:click="deleteHouse(item.id)"><v-icon>close</v-icon></v-btn>
+                          <v-btn  flat color="green" :to="'/house/'+item.id"><v-icon>details</v-icon>Detail</v-btn>
+                          <v-btn  flat color="orange"><v-icon>share</v-icon>Share</v-btn>
+                          <el-popover trigger="click" placement="top" v-model="item.popover">
+                            <p>Do you want to delete the house? (This operation is irrevocable)</p>
+                            <div style="text-align: right; margin: 0">
+                              <v-btn flat color="green" @click="item.popover = false">Cancel</v-btn>
+                              <v-btn flat color="red" @click="deleteHouse(item.id)">Delete</v-btn>
+                            </div>
+                            <v-btn flat color="red" slot="reference"><v-icon>close</v-icon>Delete</v-btn>
+                          </el-popover>
                         </v-card-actions>
                       </v-flex>
                     </v-layout>
@@ -139,10 +156,21 @@ export default {
   name: 'HouseList',
   components: {
     "HouseCreateModal": () => import('./HouseCreateModal.vue'),
+    "HouseFilter": () => import('./HouseFilter.vue'),
   },
   created() {
     const query = this.$route.query
     this.$store.dispatch('house/getList', query)
+  },
+  data: () => {
+    return {
+      sortMethods: [
+        {name: "Price Low to High", param: "srule=price-low-to-high"},
+        {name: "Price High to Low", param: "srule=price-high-to-low"},
+        {name: "Favorites High to Low", param: "srule=favorites-high-to-low"},
+        {name: "Favorites Low to High", param: "srule=favorites-low-to-high"},
+      ]
+    }
   },
   computed: mapState({
     totalNums: state => state.house.list.count,

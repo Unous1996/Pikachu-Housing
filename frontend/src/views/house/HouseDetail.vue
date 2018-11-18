@@ -20,7 +20,7 @@
         <section class="content">
           <v-layout row justify-space-between>
             <v-flex md3>
-              <h1 class="detailTitle">{{house.name}}</h1>
+              <h2 class="detailTitle">{{house.name}}</h2>
             </v-flex>
             <v-flex md3 class="text-xs-right">
               <HouseEditModal :detail="house"></HouseEditModal>
@@ -34,7 +34,7 @@
               </div>
             </div>
             <v-divider> </v-divider>
-            <el-carousel autoplay=false trigger="click" height="500px" interval="6000">
+            <el-carousel autoplay=false trigger="click" height="700px" interval="6000">
               <el-carousel-item  v-for="img in house.imgs_url" :key="item">
                 <v-img :src="house.cover_img + img" style="margin-top: 10px"></v-img>
               </el-carousel-item>
@@ -118,7 +118,7 @@ export default {
 .content {
   padding: 16px;
   .detailTitle {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
