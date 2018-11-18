@@ -26,7 +26,7 @@ class House(models.Model):
         from department.models import Department
         super(House, self).save(**kwargs)
         if self.latitude and self.longitude:
-            department_set = Department.objects.raw('SELECT * FROM department_department WHERE latitude IS NOT NULL and longitude IS NOT NULL')
+            department_set = Department.objects.raw('SELECT * FROM department_department WHERE latitude <> 0 OR longitude <> 0')
             for department_item in department_set:
                 gap = getSphereDistance(lat1=self.latitude, lon1=self.longitude, lat2=department_item.latitude, lon2=department_item.longitude)
                 distance = Distance(house_id=self, department_id=department_item, distance=gap)
