@@ -3,10 +3,8 @@ from provider.models import Provider
 import provider.models
 from django.contrib.postgres.fields import ArrayField
 from django.core.validators import MaxValueValidator, MinValueValidator
-import math
-
+from assist import *
 # Create your models here.
-
 
 class House(models.Model):
     name = models.CharField(max_length=128,)
@@ -30,7 +28,7 @@ class House(models.Model):
         if self.latitude and self.longitude:
             department_set = Department.objects.raw('SELECT * FROM department_department WHERE latitude IS NOT NULL and longitude IS NOT NULL')
             for department_item in department_set:
-                gap = math.sqrt((self.latitude - department_item.latitude)*(self.latitude - department_item.latitude) + (self.longitude - department_item.longitude)*(self.longitude - department_item.longitude))
+                gap = getSphereDistance(lat1=self.latitude, lon1=self.longitude, lat2=department_item.latitude, lon2=department_item.longitude)
                 distance = Distance(house_id=self, department_id=department_item, distance=gap)
                 distance.save()
 

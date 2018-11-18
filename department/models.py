@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 import math
+from assist import *
 # Create your models here.
 
 class Department(models.Model):
@@ -19,7 +20,7 @@ class Department(models.Model):
 	    	from housing.models import House
 	        house_set = House.objects.raw('SELECT * FROM housing_house WHERE latitude IS NOT NULL and longitude IS NOT NULL')
 	        for house_item in house_set:
-	            gap = math.sqrt((self.latitude - house_item.latitude)*(self.latitude - house_item.latitude) + (self.longitude - house_item.longitude)*(self.longitude - house_item.longitude))
+	            gap = getSphereDistance(lat1=self.latitude, lon1=self.longitude, lat2=house_item.latitude, lon2=house_item.longitude)
 	            distance = Distance(house_id = house_item, department_id = self, distance = gap)
 	            distance.save()    
 	
