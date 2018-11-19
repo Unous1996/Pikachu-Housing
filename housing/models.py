@@ -30,7 +30,6 @@ class House(models.Model):
             pk_val = self.pk
 
         super(House, self).save(**kwargs)
-        print('self.latitude = %d, self.longitude = %d', self.latitude, self.longitude)
         from distance.models import Distance
         from Department.models import Department
         if self.latitude != 0 or self.longitude != 0:

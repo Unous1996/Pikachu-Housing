@@ -21,7 +21,6 @@ class Department(models.Model):
 			create = False
 			pk_val = self.pk
 		super(Department, self).save(**kwargs)
-		print('self.latitude = %d, self.longitude = %d', self.latitude, self.longitude)
 		from distance.models import Distance
 		from housing.models import House
 		if self.latitude != 0 or self.longitude != 0:
