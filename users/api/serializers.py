@@ -30,6 +30,14 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class SigninSerializer(serializers.Serializer):
-    username_or_email = serializers.CharField(max_length=255, allow_blank=True)
-    password = serializers.CharField(max_length=100, allow_blank=True)
+    username_or_email = serializers.CharField(max_length=255)
+    password = serializers.CharField(max_length=100)
+    remember = serializers.NullBooleanField(default=False)
+
+
+class SignUpSerializer(serializers.Serializer):
+    email = serializers.CharField(max_length=255)
+    username = serializers.CharField(max_length=255)
+    password = serializers.CharField(max_length=100)
+    department = serializers.IntegerField(default=-1)
     remember = serializers.NullBooleanField(default=False)

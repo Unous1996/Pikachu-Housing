@@ -17,4 +17,10 @@ export default {
     const url = "/api/user/signin/"
     provider.post(url, data).then(response => this.getUser(cb)).catch((e) => errorcb(e))
   },
+  signup (data, cb, errorcb) {
+    const url = "/api/user/signup/"
+    provider.post(url, data).then(response => {
+      setTimeout(() => cb(response.data), 100)
+    })
+  },
 }

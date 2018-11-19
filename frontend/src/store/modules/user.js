@@ -26,7 +26,12 @@ const actions = {
     user.login(data, user => {
       commit('setUserDetail', user)
     }, e => {state.status = false})
-  }
+  },
+  signup({commit}, data) {
+    user.signup(data, () => {
+      commit('setStatusFailure')
+    },data)
+  },
 }
 
 const mutations = {

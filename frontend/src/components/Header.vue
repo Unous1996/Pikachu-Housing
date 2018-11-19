@@ -35,12 +35,8 @@
           <v-icon>more_vert</v-icon>
         </v-btn>
         <v-list>
-          <v-list-tile
-            v-for="(item, i) in items"
-            :key="i"
-            @click=""
-          >
-            <v-list-tile-title><v-icon>{{ item.icon }}</v-icon> {{ item.title }}</v-list-tile-title>
+          <v-list-tile v-show="user.id === -1" @click="logout">
+            <v-list-tile-title><SignUpModal></SignUpModal> </v-list-tile-title>
           </v-list-tile>
 
           <v-list-tile v-if="user.id !== -1" @click="logout">
@@ -66,6 +62,7 @@ export default {
   },
   components: {
     "LoginModal": () => import('./LoginModal.vue'),
+    "SignUpModal": () => import('./SignUpModal.vue'),
   },
   computed: mapState({
     user: state => state.user.detail
@@ -73,12 +70,6 @@ export default {
 
   data () {
     return {
-      isList: true,
-      items: [{
-        title: "Create new house",
-        to: "/house/create",
-        icon: "create",
-      }],
       searchInput: '',
     }
   },
