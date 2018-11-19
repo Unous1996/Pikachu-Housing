@@ -14,13 +14,23 @@ class Department(models.Model):
         return str(self.id) + ' (' + self.name + ')'
 
     def save(self, **kwargs):
-	    super(Department, self).save(**kwargs)
-	    if self.latitude != 0 or self.longitude != 0:
-	    	from distance.models import Distance
-	    	from housing.models import House
-	        house_set = House.objects.raw('SELECT * FROM housing_house WHERE latitude <> 0 and longitude <> 0')
-	        for house_item in house_set:
-	            gap = getSphereDistance(lat1=self.latitude, lon1=self.longitude, lat2=house_item.latitude, lon2=house_item.longitude)
-	            distance = Distance(house_id = house_item, department_id = self, distance = gap)
-	            distance.save()    
-	
+		if not self.pk:
+			create = True
+		else:
+			create = False
+			pk_val = self.pk
+
+		super(Department, self).save(**kwargs)
+		print('self.latitude = %d, self.longitude = %d', self.latitude, self.longitude)
+		from distance.models import Distance
+		from housing.models import House
+		if self.latitude != 0 or self.longitude != 0:
+			if create == False:
+				distance_set = Distance.objects.raw('SELECT * FROM distance_distance WHERE department_id_id = %s',[pk_val])
+				for distance_item in distance_set:
+					distance_item.delete()
+			house_set = House.objects.raw('SELECT * FROM housing_house WHERE latitude <> 0 and longitude <> 0')
+			for house_item in house_set:
+				gap = getSphereDistance(lat1=self.latitude, lon1=self.longitude, lat2=house_item.latitude, lon2=house_item.longitude)
+				distance = Distance(house_id = house_item, department_id = self, distance = gap)
+				distance.save()
