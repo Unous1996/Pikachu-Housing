@@ -20,7 +20,6 @@ class Department(models.Model):
 		else:
 			create = False
 			pk_val = self.pk
-
 		super(Department, self).save(**kwargs)
 		print('self.latitude = %d, self.longitude = %d', self.latitude, self.longitude)
 		from distance.models import Distance
