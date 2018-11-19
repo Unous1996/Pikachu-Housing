@@ -109,19 +109,24 @@ export default {
     },
     login: function (input) { // No arrow function here...
       this.$store.dispatch('user/login',input).then(() => {
-        if(!this.$store.state.user.status) {
-          this.$notify.error({
-            title: "Signin Failed",
-            message: "Check your username/password again."
-          })
-          return
-        }
-        this.$notify({
-          title: "Login successfully",
-          type: "success",
-          message: "You have login successfully."
-        })
       })
+      let store = this.$store
+      let notify = this.$notify
+      setTimeout(() => {
+        if(!store.state.user.status) {
+        this.$notify.error({
+          title: "Signin Failed",
+          message: "Check your username/password again."
+        })
+        return
+      }
+      notify({
+        title: "Login successfully",
+        type: "success",
+        message: "You have login successfully."
+      })
+      },1400)
+
     }
   }
 }

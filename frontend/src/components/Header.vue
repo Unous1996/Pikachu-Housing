@@ -43,7 +43,7 @@
             <v-list-tile-title><v-icon>{{ item.icon }}</v-icon> {{ item.title }}</v-list-tile-title>
           </v-list-tile>
 
-          <v-list-tile v-if="user.username !== 'Anonymous'" @click="logout">
+          <v-list-tile v-if="user.id !== -1" @click="logout">
             <v-list-tile-title><v-icon>exit_to_app</v-icon> Log Out </v-list-tile-title>
           </v-list-tile>
 

@@ -23,7 +23,7 @@
               <h2 class="detailTitle">{{house.name}}</h2>
             </v-flex>
             <v-flex md3 class="text-xs-right">
-              <HouseEditModal :detail="house"></HouseEditModal>
+              <HouseEditModal :detail="house" v-show="authenticated"></HouseEditModal>
             </v-flex>
           </v-layout>
           <v-divider></v-divider>
@@ -79,7 +79,8 @@ export default {
     this.$store.dispatch('house/getHouseDetailObj',this.$route.params.id)
   },
   computed: mapState({
-    house: state => state.house.detail
+    house: state => state.house.detail,
+    authenticated: state => state.user.detail.id !== -1,
   }),
   data: () => {
     return {

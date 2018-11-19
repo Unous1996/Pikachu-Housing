@@ -2,7 +2,8 @@ import user from '../../api/user'
 
 const state = {
   detail: {
-    username: "Anonymous"
+    username: "Anonymous User",
+    id: -1,
   },
   next: "",
   status: false,
@@ -34,7 +35,7 @@ const mutations = {
     state.status = true
   },
   resetUser(state, next) {
-    state.detail = {username: "Anonymous"}
+    state.detail = {username: "Anonymous User", id: -1}
     state.next = next
   },
   setStatusFailure(state, user) {

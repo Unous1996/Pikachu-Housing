@@ -6,7 +6,7 @@
     <v-btn flat slot="activator"><v-icon>add</v-icon>New House</v-btn>
     <v-card>
       <v-card-title
-        class="headline grey lighten-2"
+        class="headline orange lighten-2 white--text"
         primary-title
       >
         Create a new House!
@@ -140,6 +140,7 @@ export default {
           type: "success",
           message: "You have created a new house."
         })
+        this.$router.push("house/")
       })
     }
   }

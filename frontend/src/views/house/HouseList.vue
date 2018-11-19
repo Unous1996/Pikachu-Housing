@@ -63,7 +63,7 @@
                 <h1>House list</h1>
               </v-flex>
               <v-flex md5 class="text-xs-right list-header-bar">
-                <HouseCreateModal></HouseCreateModal>
+                <HouseCreateModal v-show="authenticated"></HouseCreateModal>
                 <HouseFilter></HouseFilter>
 
                 <el-dropdown trigger="click">
@@ -105,15 +105,19 @@
                           </v-card-text>
                         <v-card-actions>
                           <v-btn  flat color="green" :to="'/house/'+item.id"><v-icon>details</v-icon>Detail</v-btn>
-                          <v-btn  flat color="orange"><v-icon>share</v-icon>Share</v-btn>
-                          <el-popover trigger="click" placement="top" v-model="item.popover">
-                            <p>Do you want to delete the house? (This operation is irrevocable)</p>
-                            <div style="text-align: right; margin: 0">
-                              <v-btn flat color="green" @click="item.popover = false">Cancel</v-btn>
-                              <v-btn flat color="red" @click="deleteHouse(item.id)">Delete</v-btn>
-                            </div>
-                            <v-btn flat color="red" slot="reference"><v-icon>close</v-icon>Delete</v-btn>
-                          </el-popover>
+                          <div v-show="authenticated">
+                            <v-btn  flat color="orange"><v-icon>star_border</v-icon>Like</v-btn>
+                          </div>
+                          <div v-show="authenticated">
+                            <el-popover trigger="click" placement="top" v-model="item.popover">
+                              <p>Do you want to delete the house? (This operation is irrevocable)</p>
+                              <div style="text-align: right; margin: 0">
+                                <v-btn flat color="green" @click="item.popover = false">Cancel</v-btn>
+                                <v-btn flat color="red" @click="deleteHouse(item.id)">Delete</v-btn>
+                              </div>
+                              <v-btn flat color="red" slot="reference"><v-icon>close</v-icon>Delete</v-btn>
+                            </el-popover>
+                          </div>
                         </v-card-actions>
                       </v-flex>
                     </v-layout>
@@ -178,7 +182,8 @@ export default {
     currentPage: () => {
       const query = this.$route.query
       return query.page ? query.page : 1
-    }
+    },
+    authenticated: state => state.user.detail.id !== -1,
   }),
   methods: {
     deleteHouse: function (id) { // No arrow function here...
