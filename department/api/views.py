@@ -3,8 +3,11 @@ from department.models import Department
 from department.api.paginations import DepartmentPagination
 from serializers import DepartmentSerializer
 from rest_framework.response import Response
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
+@permission_classes((IsAuthenticatedOrReadOnly,))
 class DepartmentViewSet(viewsets.ModelViewSet):
     # pagination_class = DepartmentPagination
     serializer_class = DepartmentSerializer

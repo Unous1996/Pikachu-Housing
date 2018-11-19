@@ -4,6 +4,7 @@ import math
 from assist import *
 # Create your models here.
 
+
 class Department(models.Model):
     name = models.CharField(max_length=32,)
     location = models.CharField(max_length=128, blank=True)
@@ -34,3 +35,4 @@ class Department(models.Model):
 				gap = getSphereDistance(lat1=self.latitude, lon1=self.longitude, lat2=house_item.latitude, lon2=house_item.longitude)
 				distance = Distance(house_id = house_item, department_id = self, distance = gap)
 				distance.save()
+
