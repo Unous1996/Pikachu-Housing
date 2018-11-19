@@ -21,28 +21,23 @@ class House(models.Model):
     def __str__(self):
         return str(self.id) + ' (' + self.name + ')'
 
-
     def save(self, **kwargs):
-        if not self.pk:
-            create = True
-        else:
-            create = False
-            pk_val = self.pk
-
-        super(House, self).save(**kwargs)
-        print('self.latitude = %d, self.longitude = %d', self.latitude, self.longitude)
+        super(House,self).save(**kwargs)
         from distance.models import Distance
-        from Department.models import Department
+        from department.models import Department
         if self.latitude != 0 or self.longitude != 0:
-            if create == False:
-                distance_set = Distance.objects.raw('SELECT * FROM distance_distance WHERE house_id_id = %s',[pk_val])
-                for distance_item in distance_set:
-                    distance_item.delete()
-            department_set = Department.objects.raw('SELECT * FROM department_department WHERE latitude <> 0 and longitude <> 0')
+            distance_set = Distance.objects.raw('SELECT * FROM distance_distance WHERE house_id_id = %s',[self.pk])
+            for distance_item in distance_set:
+                department_item = distance_item.department_id
+                new_distance = getSphereDistance(lat1=self.latitude, lon1=self.longitude, lat2=department_item.latitude, lon2=department_item.longitude)
+                distance_item.distance = new_distance
+                distance_item.save()
+            department_set = Department.objects.raw('SELECT * FROM department_department WHERE (department_department.latitude <> 0 OR department_department.longitude <> 0) AND department_department.id NOT IN (SELECT department_id_id FROM distance_distance WHERE house_id_id = %s)', [self.pk])
             for department_item in department_set:
-                gap = getSphereDistance(lat1=self.latitude, lon1=self.longitude, lat2=department_item.latitude, lon2=depratment_item.longitude)
-                distance = Distance(house_id = department_item, department_id = self, distance = gap)
+                gap = getSphereDistance(lat1=self.latitude, lon1=self.longitude, lat2=department_item.latitude, lon2=department_item.longitude)
+                distance = Distance(house_id=self, department_id=department_item, distance=gap)
                 distance.save()
+
 
     
 
