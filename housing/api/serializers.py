@@ -8,7 +8,7 @@ class HouseSerializer(serializers.ModelSerializer):
     def get_closest_department(self, obj):
         distance_set = Distance.objects.raw('SELECT * FROM distance_distance WHERE distance_distance.house_id_id = %s ORDER BY distance_distance.distance ASC',[obj.id,])
         for item in distance_set:
-            return item.department_id.name
+            return item.department_id.id
         return None
 
     class Meta:
@@ -27,4 +27,3 @@ class HouseSerializer(serializers.ModelSerializer):
             'provider',
             'closest_department'
         )
-
