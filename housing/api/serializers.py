@@ -10,12 +10,14 @@ class HouseSerializer(serializers.ModelSerializer):
     closest_department = serializers.SerializerMethodField()
 
     def get_closest_department(self, obj):
+
         distance_set = Distance.objects.raw('SELECT * FROM distance_distance WHERE distance_distance.house_id_id = %s ORDER BY distance_distance.distance ASC',[obj.id,])
+        
         for item in distance_set:
-            dept = item.department_id
-            serializer = DepartmentSerializer(dept)
-            return serializer.data
-        return 
+            serializer = DepartmentSerializer(item.department_id)
+            serialized_data = serializer.data
+            serialized_data['distance'] = item.distance
+            return serialized_data
 
     class Meta:
         model = House
