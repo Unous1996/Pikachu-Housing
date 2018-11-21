@@ -26,6 +26,8 @@
               <HouseEditModal :detail="house" v-show="authenticated"></HouseEditModal>
             </v-flex>
           </v-layout>
+
+
           <v-divider></v-divider>
           <v-flex class="mt-2">
             <div style="margin-bottom: 10px">
@@ -42,7 +44,7 @@
 
           </v-flex>
           <v-flex class="mt-4">
-            <div v-html="markdownContent(house.description)" id="mdeditor"></div>
+            <div class="description-font" v-html="markdownContent(house.description)" id="mdeditor"></div>
           </v-flex>
         </section>
 
@@ -63,6 +65,14 @@
       </v-container>
     </v-flex>
 
+
+    <v-flex md3 v-show="$vuetify.breakpoint.mdAndUp">
+      <div class="mr-3 mt-4" style="position:fixed;">
+        <HouseSuggestionCard></HouseSuggestionCard>
+        <RoommateCard></RoommateCard>
+      </div>
+    </v-flex>
+
   </v-layout>
 </template>
 
@@ -74,6 +84,8 @@ export default {
   components: {
     'vmenu': () => import('./HouseMenu.vue'),
     "HouseEditModal": () => import('./HouseEditModal.vue'),
+    "HouseSuggestionCard": () => import('./HouseSuggestionCard.vue'),
+    "RoommateCard": () => import('./RoommateCard.vue'),
   },
   created() {
     this.$store.dispatch('house/getHouseDetailObj',this.$route.params.id)
@@ -121,6 +133,10 @@ export default {
   .detailTitle {
     font-size: 20px;
   }
+}
+
+.description-font {
+  font-size: 18px;
 }
 
 .markdown-editor {

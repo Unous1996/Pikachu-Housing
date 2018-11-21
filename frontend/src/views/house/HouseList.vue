@@ -18,42 +18,8 @@
 
           <v-flex md3 v-show="$vuetify.breakpoint.mdAndUp">
             <div class="mr-3" style="position:fixed;">
-            <v-card color="blue-grey darken-2" class="white--text mt-3">
-                  <v-card-title primary-title>
-                    <div class="headline">Your House suggestion</div>
-                  </v-card-title>
-                  <v-card-text>
-                    <div>Based on your information, our algorithm will suggest best houses to you. Have a try!</div>
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-btn flat dark>Try now</v-btn>
-                  </v-card-actions>
-              </v-card>
-
-              <v-card color="purple" class="white--text mt-3">
-                <v-layout row>
-                  <v-flex xs7>
-                    <v-card-title primary-title>
-                      <div>
-                        <div class="headline">Halycon Days</div>
-                        <div>Hot house</div>
-                        <div>Near ECEB | 3 houses left</div>
-                      </div>
-                    </v-card-title>
-                  </v-flex>
-                  <v-flex xs5>
-                    <v-img
-                      src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
-                      height="125px"
-                      contain
-                    ></v-img>
-                  </v-flex>
-                </v-layout>
-                <v-divider light></v-divider>
-                <v-card-actions class="pa-3">
-                  View this House
-                </v-card-actions>
-            </v-card>
+              <HouseSuggestionCard :houses="houses.slice(0,3)"></HouseSuggestionCard>
+              <RoommateCard></RoommateCard>
             </div>
           </v-flex>
 
@@ -70,7 +36,9 @@
                   <v-btn flat><v-icon>sort</v-icon>Sort</v-btn>
                   <el-dropdown-menu slot="dropdown">
                     <div v-for="(key,i) in sortMethods" :key="i">
-                      <el-dropdown-item @click="">{{key.name}}</el-dropdown-item>
+                      <div @click="() => toRoute('',{},key.param)">
+                        <el-dropdown-item >{{key.name}}</el-dropdown-item>
+                      </div>
                     </div>
                   </el-dropdown-menu>
                 </el-dropdown>
@@ -99,8 +67,8 @@
                           <br>
                         </v-card-title>
                           <v-card-text class="pt-2" >
+                            <h4>Price: ${{item.price}}</h4>
                             <span class="grey--text">Location: {{item.location}}</span><br>
-                            <span>Price: ${{item.price}}</span><br>
                             <span class="grey--text">{{item.description.slice(0,200)}}...</span>
                           </v-card-text>
                         <v-card-actions>
@@ -140,9 +108,9 @@
                 layout="prev, pager, next"
                 :total="totalNums"
                 :currentPage="this.$route.query.page ? this.$route.query.page : 1"
-                @current-change="(page) => toRoute('house',{}, {page: page})"
-                @next-click="(page) => toRoute('house',{}, {page: page})"
-                @prev-click="(page) => toRoute('house',{}, {page: page})"
+                @current-change="(page) => toRoute('',{}, {page: page})"
+                @next-click="(page) => toRoute('',{}, {page: page})"
+                @prev-click="(page) => toRoute('',{}, {page: page})"
               >
               </el-pagination>
             </div>
@@ -161,6 +129,8 @@ export default {
   components: {
     "HouseCreateModal": () => import('./HouseCreateModal.vue'),
     "HouseFilter": () => import('./HouseFilter.vue'),
+    "HouseSuggestionCard": () => import('./HouseSuggestionCard.vue'),
+    "RoommateCard": () => import('./RoommateCard.vue'),
   },
   created() {
     const query = this.$route.query
@@ -169,10 +139,12 @@ export default {
   data: () => {
     return {
       sortMethods: [
-        {name: "Price Low to High", param: "srule=price-low-to-high"},
-        {name: "Price High to Low", param: "srule=price-high-to-low"},
-        {name: "Favorites High to Low", param: "srule=favorites-high-to-low"},
-        {name: "Favorites Low to High", param: "srule=favorites-low-to-high"},
+        {name: "Price Low to High", param: {srule: "price-low-to-high"}},
+        {name: "Price High to Low", param: {srule: "price-high-to-low"}},
+        {name: "Favorites High to Low", param: {srule:"favorites-high-to-low"}},
+        {name: "Favorites Low to High", param: {srule:"favorites-low-to-high"}},
+        {name: "House name A - Z", param: {srule:"name-ascending"}},
+        {name: "House name Z - A", param: {srule:"name-descending"}},
       ]
     }
   },

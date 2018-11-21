@@ -5,7 +5,11 @@ const state = {
   detail: {},
 }
 
-const getters = {}
+const getters = {
+  getDepartNameById: (state) => (id) => {
+    return state.department.list.find(d => d.id = id).name
+  }
+}
 
 const actions = {
   getList ({ commit }, query) {
