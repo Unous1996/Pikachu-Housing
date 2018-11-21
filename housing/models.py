@@ -21,6 +21,12 @@ class House(models.Model):
     def __str__(self):
         return str(self.id) + ' (' + self.name + ')'
 
+    def get_closest_deptid(self):
+        distance_set = Distance.objects.raw('SELECT * FROM distance_distance WHERE distance_distance.house_id_id = %s ORDER BY distance_distance.distance ASC',[self.id,])
+        for item in distance_set:
+            return item.department_id.id
+        return None
+
     def save(self, **kwargs):
         super(House,self).save(**kwargs)
         from distance.models import Distance
