@@ -3,7 +3,7 @@ from housing.models import House
 from distance.models import Distance
 from rest_framework.response import Response
 from django.http import JsonResponse
-from department.api.serializers import DepartmentSerializer, DepartmentSerializerWithDistance
+from department.api.serializers import DepartmentSerializer
 
 class HouseSerializer(serializers.ModelSerializer):
 
