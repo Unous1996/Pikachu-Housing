@@ -25,6 +25,5 @@ class ClosestHouseViewSet(viewsets.ModelViewSet):
 
     def retrieve(self, request, pk):
     	house_raw_set = House.objects.raw('SELECT * FROM housing_house')
-        #use the method in the model, the internet is not so good 
     	serializers = HouseSerializer(house_raw_set, many=True)
     	return Response(serializers.data)
