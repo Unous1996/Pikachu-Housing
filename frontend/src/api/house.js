@@ -7,7 +7,7 @@ export default {
       // url = `/api/house/?name=${query.name}`
       url = "/api/house/?"
       Object.keys(query).forEach((key) => {
-        url += key + "=" + query[key]
+        url += key + "=" + query[key] + "&"
       })
     }
     provider.get(url).then(response => {
