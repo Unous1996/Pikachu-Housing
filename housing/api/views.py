@@ -14,7 +14,6 @@ class HouseViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = House.objects.all()
-
         house_id = self.request.query_params.get('id', None)
         if house_id:
             queryset = queryset.filter(id = house_id)
@@ -47,7 +46,6 @@ class HouseViewSet(viewsets.ModelViewSet):
         maxprice = self.request.query_params.get('maxprice', None)
         if maxprice:
             queryset = queryset.filter(price__lte = maxprice)
-
         minprice = self.request.query_params.get('minprice', None)
         if minprice:
             queryset = queryset.filter(price__gte = minprice)
