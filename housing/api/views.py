@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from housing.models import House
 from housing.api.paginations import HousePagination
-from serializers import HouseSerializer, ClosestHouseSerializer
+from serializers import HouseSerializer, HouseSerializerPruned
 from rest_framework import permissions
 from rest_framework.response import Response
 from itertools import chain
@@ -21,7 +21,7 @@ class HouseViewSet(viewsets.ModelViewSet):
 
 class ClosestHouseViewSet(viewsets.ModelViewSet):
     pagination_class = HousePagination
-    serializer_class = HouseSerializer
+    serializer_class = HouseSerializerPruned
     permission_classes = (permissions.BasePermission,)
     queryset = ''
 
@@ -36,5 +36,5 @@ class ClosestHouseViewSet(viewsets.ModelViewSet):
                 my_obj_list.append(obj)
         print(my_obj_list)
         qs = list(chain(none_houses, my_obj_list))
-        serializers = HouseSerializer(qs, many=True)
+        serializers = HouseSerializerPruned(qs, many=True)
         return Response(serializers.data)

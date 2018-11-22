@@ -36,21 +36,7 @@ class HouseSerializer(serializers.ModelSerializer):
             'closest_department',
         )
 
-
-class ClosestHouseSerializer(serializers.ModelSerializer):
-
-    is_closest = serializers.SerializerMethodField('_is_closest')
-
-    def _is_closest(self, obj):
-        target_dept = self.context.get('department_id')
-        if target_dept:
-            return target_dept == self.get_closest_department()
-        return False
-
-    def get_is_closest(self):
-        query_set = House.objects.filter(_is_closest=True)
-        serializer = HouseSerializer(query_set, many=True)
-        return serializer.data
+class HouseSerializerPruned(serializers.ModelSerializer):
 
     class Meta:
         model = House
@@ -66,7 +52,6 @@ class ClosestHouseSerializer(serializers.ModelSerializer):
             'latitude',
             'longitude',
             'provider',
-            'is_closest'
         )
 
 
