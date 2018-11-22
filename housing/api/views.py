@@ -7,6 +7,7 @@ from housing.api.paginations import HousePagination
 from serializers import HouseSerializer, HouseSerializerPruned
 from rest_framework import permissions
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from itertools import chain
 
 class HouseViewSet(viewsets.ModelViewSet):
@@ -14,9 +15,25 @@ class HouseViewSet(viewsets.ModelViewSet):
     serializer_class = HouseSerializer
     permission_classes = (permissions.BasePermission,)
 
+    def _list_closest(self, department_id):
+        all_houses = House.objects.raw('SELECT * FROM housing_house')
+        none_houses = House.objects.none()
+        my_obj_list = []
+        for obj in all_houses:
+            closest = obj.get_closest_deptid()
+            if closest == float(department_id):
+                my_obj_list.append(obj)
+        qs = list(chain(none_houses, my_obj_list))
+        return qs
+
     def get_queryset(self):
         queryset = House.objects.all()
         house_id = self.request.query_params.get('id', None)
+        department_id = self.request.GET.get('department',-1)
+
+        if department_id != -1:
+            return self._list_closest(department_id=department_id)
+
         if house_id:
             queryset = queryset.filter(id = house_id)
 
@@ -68,25 +85,6 @@ class HouseViewSet(viewsets.ModelViewSet):
         # Print the actual SQL query, for showing the TA about the actual query
         # print(queryset.query)
         return queryset
-
-class ClosestHouseViewSet(viewsets.ModelViewSet):
-    pagination_class = HousePagination
-    serializer_class = HouseSerializerPruned
-    permission_classes = (permissions.BasePermission,)
-    queryset = ''
-
-    def retrieve(self, request, pk):
-        all_houses = House.objects.raw('SELECT * FROM housing_house')
-        none_houses = House.objects.none()
-        my_obj_list = []
-
-        for obj in all_houses:
-            closest = obj.get_closest_deptid()
-            if closest == float(pk):
-                my_obj_list.append(obj)
-        qs = list(chain(none_houses, my_obj_list))
-        serializers = HouseSerializerPruned(qs, many=True)
-        return Response(serializers.data)
 
         # Tried building the actual query instead of using filter, but did not work out
         # basequery = "SELECT id FROM housing_house"

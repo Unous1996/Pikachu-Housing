@@ -1,6 +1,6 @@
 from rest_framework import routers
 from django.conf.urls import include, url, patterns
-from housing.api.views import HouseViewSet, ClosestHouseViewSet
+from housing.api.views import HouseViewSet
 from distance.api.views import DistanceViewSet
 from department.api.views import DepartmentViewSet
 from provider.api.views import ProviderViewSet
@@ -9,7 +9,6 @@ from like.api.views import LikeViewSet
 
 router = routers.DefaultRouter()
 router.register(r'house', HouseViewSet, base_name='house')
-router.register(r'house/department', ClosestHouseViewSet, base_name='house/department')
 router.register(r'provider', ProviderViewSet, base_name='provider')
 router.register(r'distance', DistanceViewSet, base_name='distance')
 router.register(r'department', DepartmentViewSet, base_name='department')
@@ -21,5 +20,5 @@ app_name = 'api'
 urlpatterns = patterns(
     'api',
     url(r'^', include(router.urls)),
-    url(r'^auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
 )
