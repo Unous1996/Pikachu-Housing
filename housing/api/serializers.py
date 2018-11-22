@@ -8,6 +8,22 @@ from like.models import Like
 
 class HouseSerializer(serializers.ModelSerializer):
 
+    like_count = serializers.SerializerMethodField()
+    closest_department = serializers.SerializerMethodField()
+
+    def get_like_count(self, obj):
+        count = Like.objects.filter(house_id = obj.id).count()
+        print(type(obj.id))
+        return count
+
+    def get_closest_department(self, obj):
+        distance_set = Distance.objects.raw('SELECT * FROM distance_distance WHERE distance_distance.house_id_id = %s ORDER BY distance_distance.distance ASC',[obj.id,])
+        for item in distance_set:
+            serializer = DepartmentSerializer(item.department_id)
+            serialized_data = serializer.data
+            serialized_data['distance'] = item.distance
+            return serialized_data
+
     class Meta:
         model = House
         fields = (
@@ -22,11 +38,14 @@ class HouseSerializer(serializers.ModelSerializer):
             'latitude',
             'longitude',
             'provider',
-            'closest_department_float',
+            'closest_department',
+            'like_count'
         )
 
 
 class HouseSerializerPruned(serializers.ModelSerializer):
+
+    like_count = serializers.SerializerMethodField()
 
     def get_like_count(self, obj):
         count = Like.objects.filter(house_id = obj.id).count()
@@ -46,6 +65,7 @@ class HouseSerializerPruned(serializers.ModelSerializer):
             'latitude',
             'longitude',
             'provider',
+            'like_count'
         )
 
 
