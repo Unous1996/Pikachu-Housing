@@ -12,19 +12,19 @@ from itertools import chain
 
 class HouseViewSet(viewsets.ModelViewSet):
     pagination_class = HousePagination
-    serializer_class = HouseSerializer
+    
     permission_classes = (permissions.BasePermission,)
-
+    
     def _list_closest(self, department_id):
-        all_houses = House.objects.raw('SELECT * FROM housing_house')
-        none_houses = House.objects.none()
-        my_obj_list = []
-        for obj in all_houses:
-            closest = obj.get_closest_deptid()
-            if closest == float(department_id):
-                my_obj_list.append(obj)
-        qs = list(chain(none_houses, my_obj_list))
-        return qs
+        qs = House.objects.raw('SELECT * FROM housing_house WHERE closest_department_float = %s',[float(department_id),])
+        return list(qs)
+
+    def get_serializer_class(self):
+        department_id = self.request.GET.get('department',-1)
+        if department_id != -1:
+            return HouseSerializerPruned
+        else:
+            return HouseSerializer
 
     def get_queryset(self):
         queryset = House.objects.all()

@@ -4,6 +4,7 @@ from distance.models import Distance
 from rest_framework.response import Response
 from django.http import JsonResponse
 from department.api.serializers import DepartmentSerializer
+from like.models import Like
 
 class HouseSerializer(serializers.ModelSerializer):
 
@@ -24,7 +25,12 @@ class HouseSerializer(serializers.ModelSerializer):
             'closest_department_float',
         )
 
+
 class HouseSerializerPruned(serializers.ModelSerializer):
+
+    def get_like_count(self, obj):
+        count = Like.objects.filter(house_id = obj.id).count()
+        return count
 
     class Meta:
         model = House
