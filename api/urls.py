@@ -8,7 +8,7 @@ from users.api.views import UserViewset
 
 router = routers.DefaultRouter()
 router.register(r'house', HouseViewSet, base_name='house')
-router.register(r'house/department', ClosestHouseViewSet, base_name='house')
+router.register(r'house/department', ClosestHouseViewSet, base_name='house/department')
 router.register(r'provider', ProviderViewSet, base_name='provider')
 router.register(r'distance', DistanceViewSet, base_name='distance')
 router.register(r'department', DepartmentViewSet, base_name='department')
