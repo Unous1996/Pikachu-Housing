@@ -63,8 +63,8 @@ class HouseViewSet(viewsets.ModelViewSet):
                 distance_qs = distance_qs.filter(distance__lte = distance)
                 queryset = queryset.filter(id__in = distance_qs)
         
-        # Print the actual SQL query, for showing the TA about the actual query 
-        print(queryset.query)
+        # Print the actual SQL query, for showing the TA about the actual query
+        # print(queryset.query)
         return queryset
 
         # Tried building the actual query instead of using filter, but did not work out
