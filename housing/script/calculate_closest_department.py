@@ -1,6 +1,5 @@
-from os import sys, path
 import django
-
+import os
 
 def calculate_closest_deptid(house_id):
     from distance.models import Distance
@@ -11,12 +10,14 @@ def calculate_closest_deptid(house_id):
     return -1.0
 
 if __name__ == "__main__":
-	sys.path.append('/Users/tim/Desktop/CS411/Code/Pikachu-Housing')
+	os.sys.path.append('../..')
 	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings")
 	django.setup()
 	from housing.models import House
 	all_houses = House.objects.all()
-	test_house = House.objects.first()
-	print("test_house_id = %d", test_house_id)
-	closest_dept_id = calculate_closest_deptid(house_id=test_house.id)
-	test_house.closest_department_float
+	for item in all_houses:
+		closest_dept_id = calculate_closest_deptid(house_id=item.id)
+		item.closest_department_float = closest_dept_id
+		item.save()
+		print("finished calcualtion of house_id = %d", item.id)
+	print("finished calculation")
