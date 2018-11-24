@@ -4,7 +4,7 @@ from provider.models import Provider
 from department.models import Department 
 from distance.models import Distance 
 from housing.api.paginations import HousePagination
-from serializers import HouseSerializer, HouseSerializerPruned
+from serializers import HouseSerializer
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -12,28 +12,14 @@ from itertools import chain
 
 class HouseViewSet(viewsets.ModelViewSet):
     pagination_class = HousePagination
-    
+    serializer_class = HouseSerializer
     permission_classes = (permissions.BasePermission,)
     
-    def _list_closest(self, department_id):
-        qs = House.objects.raw('SELECT * FROM housing_house WHERE closest_department_float = %s',[float(department_id),])
-        return list(qs)
-
-    def get_serializer_class(self):
-        department_id = self.request.GET.get('department',-1)
-        if department_id != -1:
-            return HouseSerializerPruned
-        else:
-            return HouseSerializer
-
+    
     def get_queryset(self):
         queryset = House.objects.all()
-        house_id = self.request.query_params.get('id', None)
-        department_id = self.request.GET.get('department',-1)
 
-        if department_id != -1:
-            return self._list_closest(department_id=department_id)
-
+        house_id = self.request.query_params.get('id', None)    
         if house_id:
             queryset = queryset.filter(id = house_id)
 
@@ -44,11 +30,6 @@ class HouseViewSet(viewsets.ModelViewSet):
                 queryset = queryset.filter(name__icontains = n)
 
         provider = self.request.query_params.get('provider', None)
-        # if provider:
-        #     provider_qs = Provider.objects.all()
-        #     provider_ids = provider_qs.filter(name__iexact = provider).values_list('pk', flat = True)
-        #     if provider_ids:
-        #         provider_id = provider_ids[0]
         if provider:
             queryset = queryset.filter(provider = provider)
 
@@ -65,12 +46,16 @@ class HouseViewSet(viewsets.ModelViewSet):
         maxprice = self.request.query_params.get('maxprice', None)
         if maxprice:
             queryset = queryset.filter(price__lte = maxprice)
+
         minprice = self.request.query_params.get('minprice', None)
         if minprice:
             queryset = queryset.filter(price__gte = minprice)
 
         # TO CHECK (bc no acess to department and distance credentials)
         department = self.request.query_params.get('department', None)
+        if department != -1:
+            queryset = queryset.filter(closest_department_float=float(department))   
+
         distance = self.request.query_params.get('distance', None)
         if department:
             department_qs = Department.objects.all()

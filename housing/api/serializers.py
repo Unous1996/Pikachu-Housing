@@ -45,31 +45,3 @@ class HouseSerializer(serializers.ModelSerializer):
             'closest_department',
             'like_count'
         )
-
-
-class HouseSerializerPruned(serializers.ModelSerializer):
-
-    like_count = serializers.SerializerMethodField()
-
-    def get_like_count(self, obj):
-        count = Like.objects.filter(house_id = obj.id).count()
-        return count
-
-    class Meta:
-        model = House
-        fields = (
-            'id',
-            'name',
-            'price',
-            'location',
-            'cover_img',
-            'types',
-            'description',
-            'imgs_url',
-            'latitude',
-            'longitude',
-            'provider',
-            'like_count'
-        )
-
-
