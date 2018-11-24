@@ -53,7 +53,7 @@ class HouseViewSet(viewsets.ModelViewSet):
 
         # TO CHECK (bc no acess to department and distance credentials)
         department = self.request.query_params.get('department', None)
-        if department != -1:
+        if department:
             queryset = queryset.filter(closest_department_float=float(department))   
 
         distance = self.request.query_params.get('distance', None)
