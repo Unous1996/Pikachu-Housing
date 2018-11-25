@@ -51,70 +51,46 @@ class UserViewset(viewsets.ModelViewSet):
         django_logout(request)
         return Response({'next': '/'}, status=status.HTTP_200_OK)
 
-    @detail_route(methods=['GET'])
+    @list_route(methods=['GET'])
     def suggestion(self, request, pk=None):
         #1:close_to_department 
         #2:cheap_house
         #3:hot_house
-        cheap_thereshold = 600
-        count_threshold = 3
+        user = request.user
+        if user.profile:
+            closest_house_query = 'closest_department_float = %s' % user.profile.department.id
+        else:
+            closest_house_query = 'id = -1'
 
-        pk_int = int(pk[1:])
-        user= User.objects.raw("SELECT * FROM auth_user WHERE id = %s",[pk_int])
-        department_float = -1.0
-        for user_item in user:
-            department_float = float(user_item.profile.department.id) 
-        
-        queryset_1 = House.objects.raw('SELECT * FROM housing_house WHERE closest_department_float = %s',[department_float])
-        queryset_2 = House.objects.raw('SELECT * FROM housing_house WHERE price < %s',[cheap_thereshold])
-        
-        set_1 = set(queryset_1)
-        set_2 = set(queryset_2)
-        set_12 = set_1.intersection(set_2)
-        set_1not2 = set_1.difference(set_12)
-        set_2not1 = set_2.difference(set_12)
-        
-        queryset_i12 = list(set_12)
-        queryset_1not2 = list(set_1not2)
-        queryset_2not1 = list(set_2not1)
+        cheap_house_query = 'price < 600'
+        hot_house_query = 'housing_house.id IN (SELECT housing_house.id FROM housing_house JOIN like_like ON housing_house.id = like_like.house_id_id GROUP BY housing_house.id HAVING count(*) >=3)'
+        hot_house_queryset = House.objects.extra(where=[hot_house_query])
+        cheap_house_queryset = House.objects.extra(where=[cheap_house_query])
+        closest_house_queryset = House.objects.extra(where=[closest_house_query])
 
-        queryset_13_list = []
-        queryset_23_list = []
+        hot_cheap_house_queryset = hot_house_queryset & cheap_house_queryset
+        hot_cheap_id = [house.id for house in hot_cheap_house_queryset]
 
-        qs_none = House.objects.none()
+        hot_close_house_queryset = hot_house_queryset & closest_house_queryset
+        hot_close_id = [house.id for house in hot_close_house_queryset]
 
-        for item in queryset_1not2:
-            if get_like_count(item) >= count_threshold:
-                queryset_13_list.append(item)
+        cheap_close_house_queryset = cheap_house_queryset & closest_house_queryset
+        cheap_close_id = [house.id for house in cheap_close_house_queryset]
 
-        for item in queryset_2not1:
-            if get_like_count(item) >= count_threshold:
-                queryset_23_list.append(item)
+        result_queryset = hot_close_house_queryset | hot_cheap_house_queryset | cheap_close_house_queryset
 
-        queryset_i13 = list(chain(qs_none, queryset_13_list))
-        queryset_i23 = list(chain(qs_none, queryset_23_list))
+        data = HouseSerializer(result_queryset, many=True).data[:10]
+        for house in data:
+            if house["id"] in hot_cheap_id:
+                house["suggested_reason"] = ["Hot house", "Cheap house"]
+                continue
+            if house["id"] in hot_close_id:
+                house["suggested_reason"] = ["Hot house", "Close to your department"]
+                continue
+            if house["id"] in cheap_close_id:
+                house["suggested_reason"] = ["Cheap house", "Close to your department"]
 
-        serializer12 = UserHouseSerializer12(queryset_i12, many=True)
-        serializer13 = UserHouseSerializer13(queryset_i13, many=True)
-        serializer23 = UserHouseSerializer23(queryset_i23, many=True)
-        '''
-        queryset_w13_raw = House.objects.raw('SELECT * FROM housing_house WHERE closest_department_float = %s AND price >= %s',[department_float, cheap_thereshold])
-        qs_none = House.objects.none()
-        queryset_w13_filtered_list = []
-        for item in queryset_w13_raw:
-            if get_like_count(item) >= 3:
-                queryset_w13_filtered_list.append(item)
-        queryset_w13_filtered = list(chain(qs_none, queryset_w13_filtered_list))
-        serializer13 = UserHouseSerializer13(queryset_w13_filtered, many=True)
-        '''
-        Serializer_list = [serializer12.data, serializer13.data, serializer23.data]
-        content = {
-            'status': 1,
-            'responseCode' : status.HTTP_200_OK, 
-            'data': Serializer_list
-        }
-        
-        return Response(content)
+        return Response(data)
 
     @list_route(methods=['POST'], permission_classes=[AllowAny])
     def signin(self, request):
