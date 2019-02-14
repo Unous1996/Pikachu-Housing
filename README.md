@@ -1,5 +1,5 @@
 # Pikachu-Housing
-CS411 Project Pikachu-housing 开发流程和注意事项
+Pikachu-housing 开发流程和注意事项
 
 ## 项目介绍
 
